@@ -1,0 +1,7 @@
+# Általános megjegyzések
+
+A kommentjel a # (többsoros kommentre nincs külön jel R-ben, RStudio-ban Ctrl+Shift+C használható több sort kijelölve is).
+
+Az R interpretált nyelv (RStudio-ban kényelmesen futtatható egy sor, amiben van a kurzur, vagy kijelölés esetén az egész kijelölt terület).
+
+Az R case sensitive, tehát az `a` és az `A` nem ugyanaz, két különböző dolog.

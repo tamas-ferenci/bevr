@@ -1,0 +1,328 @@
+# Adattípusok, adatszerkezetek
+
+## Adattípusok, értékadás
+
+Az értékedás jele az R-ben a `<-`. (Az `=`-t ne használjuk értékadásra, csak függvényben az argumentum értékének megadására!). Az R-ben a változókat nem kell külön deklarálni, értékadással maguktól létrejönnek, ha korábban még nem léteztek.
+
+Fontos! Ez általában is igaz: az szintaktikailag flexibilis, "megengedi trehányságot" -- ami viszont kétélű fegyver!
+
+Az `str` általában a legjobb leírója egy objektumnak. A `typeof` az objektum típusát adja meg.
+
+Az R-ben 4 fontos adattípus van (type, mode).
+
+Numerikus, alapból double:
+
+```{r, error=TRUE}
+szam <- 3.1
+szam
+SZAM
+Szam
+str( szam )
+typeof( szam )
+```
+
+Attól mert valami történetesen egész, még double pontosságú lesz:
+```{r}
+szam <- 3
+str( szam )
+typeof( szam )
+```
+
+Ha egészet (integer) akarunk, azt külön kell jelölni az `L` utótaggal:
+```{r}
+egesz <- 3L
+egesz
+str( egesz )
+typeof( egesz )
+```
+
+A numeric a mode, a double/integer a type. A többi adattípusnál a kettő egybeesik.
+
+Karakter:
+```{r}
+szoveg <- "kiskutya"
+szoveg
+str( szoveg )
+typeof( szoveg )
+```
+
+Logikai:
+```{r}
+logikai <- TRUE # logical
+logikai
+str( logikai )
+typeof( logikai )
+```
+
+A `TRUE` rövidíthető `T`-nek, a `FALSE` pedig `F`-nek.
+
+Adott típus tesztelése az `is.<tipus>` alakban lehet:
+```{r}
+is.integer( szam )
+is.integer( egesz )
+is.integer( szoveg )
+is.integer( logikai )
+```
+
+Az `is.numeric` azt jelenti, hogy is.integer vagy is.double:
+```{r}
+is.double( szam )
+is.double( egesz )
+is.numeric( szam )
+is.numeric( egesz )
+```
+
+Elvileg még két adattípus van, a `raw` és a `complex`, nem olyan fontosak. Van olyan dolog - például faktor - ami adattípusnak tűnik, de mégsem az (egy másik típus speciális eset).
+
+Adott típussá alakítás `as.<tipus>` alakban lehet:
+```{r}
+as.character( szam )
+as.numeric( szoveg )
+as.numeric( logikai )
+```
+
+Konvertálásnál az ,,erősorrend'': character < double = integer < logical (a `T` 1-re, a `F` 0-ra alakul, a többi értelemszerű). Az ezt sértő dolgok NA-t adnak. Sok parancs automatikusan konvertál!
+
+  Hiányzó értéket `NA` jelöli (adott típusú hiányzó adat `NA_real_`, `NA_integer_` és `NA_character_` módokon kérhető).
+
+## Adatszerkezetek és indexelés
+
+### Vektor
+
+A vektor homogén, 1 dimenziós adatszerkezet.
+
+Legegyszerűbb módon az elemei felsorolásával hozható létre, ehhez a `c` függvény használható:
+```{r}
+szamvektor <- c( 1, 4, 5, 2, 3, 10 )
+szamvektor
+typeof( szamvektor )
+length( szamvektor )
+```
+
+Skalár nincs az R-ben, ami annak tűnik, az igazából 1 elemű vektor:
+```{r}
+typeof( szam )
+length( szam )
+```
+
+Természetesen nem csak numerikus adatokból képezhető vektor, hanem bármilyenből:
+
+```{r}
+karaktervektor <- c( "a", "b", "xyz" )
+karaktervektor
+typeof( karaktervektor )
+length( karaktervektor )
+
+```
+
+A vektor homogén, az alábbi utasítások csak azért futnak le mégis, mert a háttérben ilyenkor az R a ,,leggyengébbre'' konvertálja az összeset (hogy kikényszerítse a homogenitást):
+```{r}
+c( 1, "a" )
+c( 2, TRUE )
+```
+
+A indexelés lehet számmal vagy vektorral (ugye igazából ugyanaz!), adott pozició vagy pozíciók kiválaszthatóak:
+```{r}
+szamvektor[ 3 ]
+szamvektor[ c( 1, 3 ) ]
+```
+
+Egy elem kiválasztható többször is:
+```{r}
+szamvektor[ c( 2, 2 ) ]
+```
+
+Kiválasztható az összes elem is, ekkor lényegében csak a sorrendet módosítjuk:
+```{r}
+szamvektor[ c( 3, 2, 1, 4, 5, 6 ) ]
+szamvektor[ order( szamvektor ) ]
+```
+
+Nemlétező elem indexelése `NA`-t ad:
+```{r}
+szamvektor[ 10 ]
+```
+
+Lehetséges negatív indexelés is, ez kiválaszt mindent, _kivéve_ amit indexeltünk:
+```{r}
+szamvektor[ -3 ]
+szamvektor[ -c( 1, 3 ) ]
+```
+
+Indexelhetünk logikai tömbbel is, ugyanolyan hosszú kell legyen mint az eredeti, és azokat választja ki, ahol `T` van:
+```{r}
+szamvektor[ c( T, F, T, T, F, T ) ]
+```
+Rövidebb tömbbel indexelés csak azért fog működik, mert ilyenkor az R reciklálja az indexelő vektort. (Ez általában is így van: újabb példa a kétélű flexibilitásra.)
+
+Az indexelés és az értékadás kombinálható is:
+```{r}
+szamvektor[ 3 ] <- 99 # az indexelés és az értékeadás kombinálható is
+szamvektor
+szamvektor[ 10 ]
+```
+
+Ha nemlétezőnek adunk értéket, automatikusan kiterjeszti a vektort, a többi helyre pedig `NA` kerül:
+```{r}
+szamvektor[ 10 ] <- 999 # ha
+szamvektor
+```
+
+A vektor elemei el is nevezhetőek; a nevek később a `names`-zel lekérhetőek, és át is állíthatóak:
+```{r}
+szamvektor <- c( elso = 4, masodik = 1, harmadik = 7 ) # az elemek el is nevezhetőek
+szamvektor
+names( szamvektor )
+names( szamvektor )[ 3 ] <- "utolso"
+szamvektor
+```
+
+Ha vannak elnevezések, akkor azok használhatóak indexelésre is:
+```{r}
+szamvektor[ "masodik" ]
+szamvektor[ c( "masodik", "utolso" ) ]
+```
+
+### Mátrix
+
+A mátrix homogén, kétdimenziós adatszerkezet.
+
+Legegyszerűbben úgy tölthető fel, ha egy vektort áttördelünk, a `matrix` függvény használatával (az `nc` argumentummal az oszlopok, az `nr` argumentummal a sorok számát állíthatjuk be, értelemszerűen elég a kettőből egyet megadni):
+```{r}
+szammatrix <- matrix( szamvektor, nc = 2 )
+szammatrix
+```
+
+Alapból oszlopok szerint tölt, de a `byrow` argumentummal ezt átállíthatjuk:
+```{r}
+matrix( szamvektor, nc = 2, byrow = TRUE )
+```
+
+A dimenzió, illetve külön a sorok és oszlopok száma könnyen lekérhető:
+```{r}
+dim( szammatrix )
+nrow( szammatrix )
+ncol( szammatrix )
+```
+
+Indexelés ugyanúgy végezhető, csak épp mindkét dimenzióra mondanunk kell valamit; a kettő vesszővel választandó el:
+```{r}
+szammatrix
+```
+[ c( 2, 3 ), 2 ]
+
+Mindkét dimenzió tetszőleges korábban látott módon indexelhető, tehát a különböző módok keverhetőek is:
+```{r}
+szammatrix[ c( 1, 2 ), c( T, F ) ]
+```
+
+Ha egy dimenziót nem indexelünk, akkor az R úgy érti, hogy onnan minden elem (de a vessző ekkor sem hagyható el!):
+```{r}
+szammatrix[ 2, ]
+```
+
+### Tömb (array)
+
+A tömb (array) homogén, $n$-dimenziós adatszerkezet (nem foglalkozunk vele részletesebben, ritkán használatos).
+
+### Data frame
+
+A data frame (adatkeret) heterogén, kétdimenziós, rektanguláris adatszerkeszet. Lényegében - nem feltétlenül ugyanolyan típusú - vektorok összefogva; a rektanguláris azt jelenti, hogy minden vektor ugyanolyan hosszú kell legyen.
+
+Ez a legtipikusabb adatszerkezet orvosi adatok tárolására: sorokban a megfigyelési egységek, oszlopokban a változók.
+
+A `data` paranccsal egy kiegészítő csomagban található kész adat tölthető be:
+
+```{r}
+data( birthwt, package = "MASS" )
+birthwt
+```
+
+Csak a felső néhány sor a `head` paranccsal kérhető le (az alsó néhány sor pedig a `tail`-lel):
+```{r}
+head( birthwt )
+```
+
+Az oszlopok és a sorok is elnevezhetőek:
+```{r}
+str( birthwt )
+names( birthwt )
+colnames( birthwt )
+```
+
+Az adatkeret a mátrixhoz hasonlóan indexelhető:
+```{r}
+birthwt[ 3, ]
+birthwt[ 3, 4 ]
+birthwt[ 3, c( 5, 6 ) ]
+```
+
+Sőt, ha vannak elnevezéseink, az is használható. A következő 4 mind egyenértékű:
+```{r}
+birthwt[ , 10  ]
+birthwt$bwt
+birthwt[ , "bwt" ]
+birthwt[[ "bwt" ]]
+```
+
+A nem dupla szögletes zárójellel történő indexelés eltérése, hogy nem a kiválasztott vektort, hanem egy csak a kiválasztott vektorból álló data frame-et ad vissza:
+```{r}
+birthwt[[ "bwt" ]]
+str( birthwt[[ "bwt" ]] )
+head( birthwt[ "bwt" ] )
+str( birthwt[ "bwt" ] )
+```
+
+Használhatunk különféle módszereket (az alábbiak közül a második a logikai indexelés miatt fog működni):
+```{r}
+head( birthwt[ , c( "lwt", "smoke" ) ] )
+head( birthwt[ birthwt$smoke==1, ] )
+head( birthwt[ birthwt$smoke==1&birthwt$race==1, ] )
+```
+
+Az adatkeret heterogén:
+```{r}
+birthwt$nev <- "a"
+head( birthwt )
+str( birthwt )
+```
+
+### Lista
+
+A lista homogén, egydimenziós adatszerkezet.
+
+Legegyszerűbben elemei felsorolásával hozható létre, a `list` függvényt használva:
+```{r}
+lista <- list( sz = szamvektor, k = karaktervektor, m = szammatrix, df = birthwt[ 1:5, ] )
+lista
+str( list )
+```
+
+Számmal és -- ha van neki -- névvel is indexelhető:
+```{r}
+lista[[ 1 ]]
+lista$sz
+lista[[ "sz" ]]
+
+```
+
+Az egy zárójellel történő indexelés látszólag ugyanaz, de csak látszólag:
+```{r}
+lista[ 1 ]
+typeof( lista[[ 1 ]] )
+typeof( lista[ 1 ] )
+```
+
+Tartomány is indexelhető:
+```{r}
+lista[ 1:2 ]
+lista[[ 1:2 ]]
+```
+
+Az előbbi dolgok természetesen kombinálhatóak is:
+```{r}
+idx <- "sz"
+lista[[ idx ]]
+```
+
+Az adatkeret igazából egy, az oszlopokból - mint vektorokból - összerakott lista (tehát két szűkítés van: az elemek csak vektorok lehetnek _és_ ugyanolyan hosszúaknak kell lenniük).
