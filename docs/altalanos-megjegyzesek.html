@@ -25,7 +25,7 @@
 <meta name="author" content="Ferenci Tamás">
 
 
-<meta name="date" content="2019-01-13">
+<meta name="date" content="2019-02-21">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -145,8 +145,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="altalanos-megjegyzesek" class="section level1">
 <h1><span class="header-section-number">2 . fejezet</span> Általános megjegyzések</h1>
-<p>A kommentjel a # (többsoros kommentre nincs külön jel R-ben, RStudio-ban Ctrl+Shift+C használható több sort kijelölve is).</p>
-<p>Az R interpretált nyelv (RStudio-ban kényelmesen futtatható egy sor, amiben van a kurzur, vagy kijelölés esetén az egész kijelölt terület).</p>
+<p>Az R interpretált nyelv, nem fordított, az utasításokat sorról sorra hajtja végre. Egy utasítás több sorba is átnyúlhat, ez nem okoz problémát (megáll, és várja a további sorokat). Az RStudio-ban <code>Ctrl+Enter</code> kombináció használható a futtatásra: ha nincs kijelölve semmi, akkor azt a sort futtatja, amiben a kurzur áll, ha ki van jelölve valami, akkor a kijelölést. (Függetlenül attól, hogy az milyen, lehet több sor is, de egy sor részlete is). Az egész szkript <code>Ctrl+Alt+R</code> kombinációval futtatható le. Fontos, hogy ha több sorba átnyúló az utasítás, akkor az RStudio futtatja az összeset egyetlen <code>Ctrl+Enter</code> ütésre is, de ehhez a legelső sorban kell állnunk (értelemszerűen visszafelé nem lát)-</p>
+<p>Az egysoros kommentjel a <code>#</code>, ez RStudio-ban a <code>Ctrl+Shift+C</code>-vel szúrható be gyorsan (azon sort kommentezi, amelyikben a kurzur áll). Többsoros kommentre nincs külön jel R-ben, viszont RStudio-ban a <code>Ctrl+Shift+C</code> használható több sort kijelölve is (ha nincsenek kikommentezve, akkor kikommentezi, ha ki vannak, akkor eltünteti a kommentjeleket).</p>
 <p>Az R case sensitive, tehát az <code>a</code> és az <code>A</code> nem ugyanaz, két különböző dolog.</p>
 
 </div>
