@@ -12,14 +12,19 @@ Az R-ben 4 fontos adattípus van (type, mode).
 
 Numerikus, alapból double:
 
-```{r, error=TRUE}
+```{r}
 szam <- 3.1
 szam
-SZAM
-Szam
 str( szam )
 typeof( szam )
 ```
+
+Nézzük meg, hogy csakugyan case sensitive a nyelv:
+```{r, error=TRUE}
+SZAM
+Szam
+```
+
 
 Attól mert valami történetesen egész, még double pontosságú lesz:
 ```{r}
@@ -27,6 +32,8 @@ szam <- 3
 str( szam )
 typeof( szam )
 ```
+
+A double pontossága jellemzően 53 bit (kb. $-2\cdot 10^{308}$-tól $2\cdot 10^{308}$-ig nagyjából $2\cdot 10^{-16}$ felbontással; az adott architektúra vonatkozó értéket a `.Machine` megmondja).
 
 Ha egészet (integer) akarunk, azt külön kell jelölni az `L` utótaggal:
 ```{r}
@@ -46,9 +53,11 @@ str( szoveg )
 typeof( szoveg )
 ```
 
+Mint látható, a sztringkonstansokat idézőjellel kell jelölni. Az R megengedi a dupla (`" "`) és a szimpla (`' '`) idézőjel használatát is, de az előbbi a preferált (az R általi kiírás is mindenképp ilyennel történik), az utóbbit érdemes az egymásbaágyazott esetekre használni (tehát, ha egy sztringkonstans tartalmaz egy idézőjeles részt).
+
 Logikai:
 ```{r}
-logikai <- TRUE # logical
+logikai <- TRUE
 logikai
 str( logikai )
 typeof( logikai )
@@ -78,12 +87,15 @@ Adott típussá alakítás `as.<tipus>` alakban lehet:
 ```{r}
 as.character( szam )
 as.numeric( szoveg )
+as.numeric( "2.4" )
 as.numeric( logikai )
 ```
 
 Konvertálásnál az ,,erősorrend'': character < double = integer < logical (a `T` 1-re, a `F` 0-ra alakul, a többi értelemszerű). Az ezt sértő dolgok NA-t adnak. Sok parancs automatikusan konvertál!
 
-  Hiányzó értéket `NA` jelöli (adott típusú hiányzó adat `NA_real_`, `NA_integer_` és `NA_character_` módokon kérhető).
+Hiányzó értéket `NA` jelöli (adott típusú hiányzó adat `NA_real_`, `NA_integer_` és `NA_character_` módokon kérhető).
+
+Speciális szerepe van még a `NULL`-nak (ez inkább olyasmit jelöl, hogy ,,üres objektum'').
 
 ## Adatszerkezetek és indexelés
 
@@ -93,11 +105,17 @@ A vektor homogén, 1 dimenziós adatszerkezet.
 
 Legegyszerűbb módon az elemei felsorolásával hozható létre, ehhez a `c` függvény használható:
 ```{r}
-szamvektor <- c( 1, 4, 5, 2, 3, 10 )
+szamvektor <- c( 1, 4, 5, -2, 3, 10 )
 szamvektor
 typeof( szamvektor )
 length( szamvektor )
 ```
+
+Az `[1]` a sor elején nem része a vektornak, az olvashatóságot segíti, amint azt a következő példa mutatja (a `:` egész számokból generál sorozatot):
+```{r}
+1:100
+```
+
 
 Skalár nincs az R-ben, ami annak tűnik, az igazából 1 elemű vektor:
 ```{r}
@@ -120,6 +138,17 @@ A vektor homogén, az alábbi utasítások csak azért futnak le mégis, mert a 
 c( 1, "a" )
 c( 2, TRUE )
 ```
+
+A vektor elemei el is nevezhetőek; a nevek később a `names`-zel lekérhetőek, és át is állíthatóak:
+```{r}
+szamvektor <- c( elso = 4, masodik = 1, harmadik = 7 )
+szamvektor
+names( szamvektor )
+names( szamvektor )[ 3 ] <- "utolso"
+szamvektor
+```
+
+Látható, hogy a `names` ,,kétirányú``: szolgáltat nekünk adatokat, de bele is nyilazhatunk értéket, ez utóbbi esetben beállítja.
 
 A indexelés lehet számmal vagy vektorral (ugye igazából ugyanaz!), adott pozició vagy pozíciók kiválaszthatóak:
 ```{r}
@@ -155,32 +184,23 @@ szamvektor[ c( T, F, T, T, F, T ) ]
 ```
 Rövidebb tömbbel indexelés csak azért fog működik, mert ilyenkor az R reciklálja az indexelő vektort. (Ez általában is így van: újabb példa a kétélű flexibilitásra.)
 
+Ha vannak elnevezések, akkor azok használhatóak indexelésre is:
+```{r}
+szamvektor[ "masodik" ]
+szamvektor[ c( "masodik", "utolso" ) ]
+```
+
 Az indexelés és az értékadás kombinálható is:
 ```{r}
-szamvektor[ 3 ] <- 99 # az indexelés és az értékeadás kombinálható is
+szamvektor[ 3 ] <- 99
 szamvektor
 szamvektor[ 10 ]
 ```
 
 Ha nemlétezőnek adunk értéket, automatikusan kiterjeszti a vektort, a többi helyre pedig `NA` kerül:
 ```{r}
-szamvektor[ 10 ] <- 999 # ha
+szamvektor[ 10 ] <- 999
 szamvektor
-```
-
-A vektor elemei el is nevezhetőek; a nevek később a `names`-zel lekérhetőek, és át is állíthatóak:
-```{r}
-szamvektor <- c( elso = 4, masodik = 1, harmadik = 7 ) # az elemek el is nevezhetőek
-szamvektor
-names( szamvektor )
-names( szamvektor )[ 3 ] <- "utolso"
-szamvektor
-```
-
-Ha vannak elnevezések, akkor azok használhatóak indexelésre is:
-```{r}
-szamvektor[ "masodik" ]
-szamvektor[ c( "masodik", "utolso" ) ]
 ```
 
 ### Mátrix
@@ -205,11 +225,12 @@ nrow( szammatrix )
 ncol( szammatrix )
 ```
 
+A mátrix oszlopai és sorai is elnevezhetőek, emiatt itt nem egy `names` van, hanem egy `row.names` és egy `names`, ez utóbbi az oszlopnév, de egyebekben teljesen hasonlóan viselkednek.
+
 Indexelés ugyanúgy végezhető, csak épp mindkét dimenzióra mondanunk kell valamit; a kettő vesszővel választandó el:
 ```{r}
-szammatrix
+szammatrix[ c( 2, 3 ), 2 ]
 ```
-[ c( 2, 3 ), 2 ]
 
 Mindkét dimenzió tetszőleges korábban látott módon indexelhető, tehát a különböző módok keverhetőek is:
 ```{r}
@@ -227,7 +248,7 @@ A tömb (array) homogén, $n$-dimenziós adatszerkezet (nem foglalkozunk vele r�
 
 ### Data frame
 
-A data frame (adatkeret) heterogén, kétdimenziós, rektanguláris adatszerkeszet. Lényegében - nem feltétlenül ugyanolyan típusú - vektorok összefogva; a rektanguláris azt jelenti, hogy minden vektor ugyanolyan hosszú kell legyen.
+A data frame (adatkeret) heterogén, kétdimenziós, rektanguláris adatszerkezet. Pontosabban szólva félig heterogén: az oszlopok homogének, de a különböző oszlopok típusai eltérhetnek egymástól. Lényegében tehát - nem feltétlenül ugyanolyan típusú - vektorok összefogva; a rektanguláris azt jelenti, hogy minden vektor ugyanolyan hosszú kell legyen.
 
 Ez a legtipikusabb adatszerkezet orvosi adatok tárolására: sorokban a megfigyelési egységek, oszlopokban a változók.
 
@@ -289,13 +310,13 @@ str( birthwt )
 
 ### Lista
 
-A lista homogén, egydimenziós adatszerkezet.
+A lista heterogén, egydimenziós adatszerkezet.
 
 Legegyszerűbben elemei felsorolásával hozható létre, a `list` függvényt használva:
 ```{r}
 lista <- list( sz = szamvektor, k = karaktervektor, m = szammatrix, df = birthwt[ 1:5, ] )
 lista
-str( list )
+str( lista )
 ```
 
 Számmal és -- ha van neki -- névvel is indexelhető:

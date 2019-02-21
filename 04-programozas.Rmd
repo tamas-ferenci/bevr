@@ -6,7 +6,7 @@ Programozás.
 
 Az R, bár többféle paradigmában is tud dolgozni, érezhető funkcionális nyelv. Ezt elegáns is, célszerű is kihasználni!
 
-  Egy példa:
+Egy példa:
 ```{r}
 mean( birthwt$bwt[ 1:100 ] )
 

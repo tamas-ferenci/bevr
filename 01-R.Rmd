@@ -1,7 +1,7 @@
 # Általános megjegyzések
 
-A kommentjel a # (többsoros kommentre nincs külön jel R-ben, RStudio-ban Ctrl+Shift+C használható több sort kijelölve is).
+Az R interpretált nyelv, nem fordított, az utasításokat sorról sorra hajtja végre. Egy utasítás több sorba is átnyúlhat, ez nem okoz problémát (megáll, és várja a további sorokat). Az RStudio-ban `Ctrl+Enter` kombináció használható a futtatásra: ha nincs kijelölve semmi, akkor azt a sort futtatja, amiben a kurzur áll, ha ki van jelölve valami, akkor a kijelölést. (Függetlenül attól, hogy az milyen, lehet több sor is, de egy sor részlete is). Az egész szkript `Ctrl+Alt+R` kombinációval futtatható le. Fontos, hogy ha több sorba átnyúló az utasítás, akkor az RStudio futtatja az összeset egyetlen `Ctrl+Enter` ütésre is, de ehhez a legelső sorban kell állnunk (értelemszerűen visszafelé nem lát)-
 
-Az R interpretált nyelv (RStudio-ban kényelmesen futtatható egy sor, amiben van a kurzur, vagy kijelölés esetén az egész kijelölt terület).
+Az egysoros kommentjel a `#`, ez RStudio-ban a `Ctrl+Shift+C`-vel szúrható be gyorsan (azon sort kommentezi, amelyikben a kurzur áll). Többsoros kommentre nincs külön jel R-ben, viszont RStudio-ban a `Ctrl+Shift+C` használható több sort kijelölve is (ha nincsenek kikommentezve, akkor kikommentezi, ha ki vannak, akkor eltünteti a kommentjeleket).
 
 Az R case sensitive, tehát az `a` és az `A` nem ugyanaz, két különböző dolog.

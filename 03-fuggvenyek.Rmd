@@ -13,7 +13,7 @@ quantile( birthwt$bwt )
 Függvényről súgó a kérdőjellel kapható (két kérdőjel az összes ismert függvényt végigkeresi, akár névtöredékre is): `?quantile`.
 
 Aminél egyenlőségjellel adva van érték a specifikációban, ott az default-ként viselkedik, nem kötelező megadni, viszont a default-tal nem rendelkezőket muszáj:
-  ```{r, error=TRUE}
+```{r, error=TRUE}
 quantile()
 ```
 
@@ -31,10 +31,6 @@ quantile( probs = c( 0.23, 0.5, 0.6 ), type = 6, x = birthwt$bwt )
 
 Az általános gyakorlat az, hogy az első két-három argumentumot adhatjuk meg név nélkül (ezeknél elvárható, hogy fejből is tudja az ember, hogy mit jelent), de a többinél elegánsabb, ha mindenképp adunk nevet (tehát akkor is, ha sorrendben írjuk).
 
-## Saját függény definiálása
-
-Ilyet is lehet.
-
 Egy függvény hívásánál az argumentumai elkülöníthetőek egy listába, majd ugyanaz a hatása a `do.call` használatával elérhető (első argumentum a függvény, második az átadandó argumentumok listája):
 ```{r}
 quantile( probs = c( 0.23, 0.5, 0.6 ), type = 6, x = birthwt$bwt )
@@ -46,3 +42,7 @@ Ez akkor jön jól, ha nem tudjuk előre, hogy mik az argumentumok (akár azt se
 rbind( c( 1, 2 ), c( 3, 4 ), c( 5, 6 ) )
 do.call( rbind, lapply( birthwt, function( x ) c( mean( x ), median( x ) ) ) )
 ```
+
+## Saját függény definiálása
+
+Ilyet is lehet.
