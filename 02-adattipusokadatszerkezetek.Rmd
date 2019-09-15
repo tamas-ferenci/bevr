@@ -1,10 +1,14 @@
 # Adattípusok, adatszerkezetek
 
-## Adattípusok, értékadás
+Az R programozásának megértéséhez szükséges egyik alapelemünk a változó: változóban tudunk információt tárolni, legyen az egyetlen szám vagy egy egész adatbázis, vagy akár egy regressziós modell. Változóból tetszőleges számút létrehozhatunk.
 
-Az értékedás jele az R-ben a `<-`. (Az `=`-t ne használjuk értékadásra, csak függvényben az argumentum értékének megadására!). Az R-ben a változókat nem kell külön deklarálni, értékadással maguktól létrejönnek, ha korábban még nem léteztek.
+Változó értéket az értékadás művelettel kap; ez kb. a ,,legyen egyenlő`` módon olvasható ki. Az R-ben nem kell előre megmondanunk, hogy milyen változókra van szükségünk: ha egy eddig még nem létező változónak adunk értéket, akkor az R automatikusan létrehozza. (Majd természetesen az értékét is beállítja arra, amit megadtunk.) Már létező változónak történő értékadásnál az előző érték elveszlik, és felülíródik az aktuálisan megadottal.
 
-Fontos! Ez általában is igaz: az szintaktikailag flexibilis, "megengedi trehányságot" -- ami viszont kétélű fegyver!
+Az a tény, hogy az R - nagyon sok más programnyelvvel szemben! - megengedi ezt, tehát, hogy nem létező változónak is adhatunk értéket, és ilyenkor azt ő automatikusan, a háttérben, anélkül, hogy bármit szólna, létrehozza, egy jó példa az R általános filozófiájára, ami sok helyen előjön. Jelesül: az R szintaktikailag flexibilis, ,,megengedi trehányságot'' -- ami viszont kétélű fegyver! Egyfelől ugyanis nagyon kényelmes, jelen esetben, hogy nem kell törődnünk a változók előzetes deklarálásával, de másrészt így könnyebben előfordulhat, hogy olyat csinálunk, amit igazából nem szeretnénk -- csak épp észre sem vesszük! Elírjuk a változó nevét, és nem figyelmeztetést kapunk, hogy de hát ilyen változó nem létezik, hanem egyetlen hang nélkül létrejön egy új, hibás nevű (miközben az igazi értéke marad változatlan). És ez talán még a legkevésbé éles példa.
+
+## Adattípusok, változó, értékadás
+
+Az értékedás jele az R-ben a `<-`. (Az `=`-t ne használjuk értékadásra, csak függvényben az argumentum értékének megadására!).
 
 Az `str` általában a legjobb leírója egy objektumnak. A `typeof` az objektum típusát adja meg.
 
@@ -25,7 +29,6 @@ SZAM
 Szam
 ```
 
-
 Attól mert valami történetesen egész, még double pontosságú lesz:
 ```{r}
 szam <- 3
@@ -43,7 +46,7 @@ str( egesz )
 typeof( egesz )
 ```
 
-A numeric a mode, a double/integer a type. A többi adattípusnál a kettő egybeesik.
+A numeric a mode, a double/integer a type. A többi adattípusnál a mode és a type egybeesik.
 
 Karakter:
 ```{r}
@@ -73,7 +76,7 @@ is.integer( szoveg )
 is.integer( logikai )
 ```
 
-Az `is.numeric` azt jelenti, hogy is.integer vagy is.double:
+Az `is.numeric` azt jelenti, hogy `is.integer` vagy `is.double`:
 ```{r}
 is.double( szam )
 is.double( egesz )
@@ -81,7 +84,7 @@ is.numeric( szam )
 is.numeric( egesz )
 ```
 
-Elvileg még két adattípus van, a `raw` és a `complex`, nem olyan fontosak. Van olyan dolog - például faktor - ami adattípusnak tűnik, de mégsem az (egy másik típus speciális eset).
+Elvileg még két adattípus van, a `raw` és a `complex`, nem olyan fontosak. Van olyan dolog - például faktor - ami adattípusnak tűnik, de mégsem az (egy másik típus speciális esete).
 
 Adott típussá alakítás `as.<tipus>` alakban lehet:
 ```{r}
@@ -95,7 +98,7 @@ Konvertálásnál az ,,erősorrend'': character < double = integer < logical (a 
 
 Hiányzó értéket `NA` jelöli (adott típusú hiányzó adat `NA_real_`, `NA_integer_` és `NA_character_` módokon kérhető).
 
-Speciális szerepe van még a `NULL`-nak (ez inkább olyasmit jelöl, hogy ,,üres objektum'').
+Speciális szerepe van még a `NULL`-nak (ez inkább olyasmit jelöl, hogy ,,üres objektum''), illetve az `NaN`-nek (not-a-number, tipikusan olyan adja, mint például ha negatív szám logaritmusát vesszük).
 
 ## Adatszerkezetek és indexelés
 
@@ -115,7 +118,6 @@ Az `[1]` a sor elején nem része a vektornak, az olvashatóságot segíti, amin
 ```{r}
 1:100
 ```
-
 
 Skalár nincs az R-ben, ami annak tűnik, az igazából 1 elemű vektor:
 ```{r}
@@ -161,7 +163,7 @@ Egy elem kiválasztható többször is:
 szamvektor[ c( 2, 2 ) ]
 ```
 
-Kiválasztható az összes elem is, ekkor lényegében csak a sorrendet módosítjuk:
+Kiválasztható az összes elem is, ekkor lényegében csak a sorrendet módosítjuk (az `order` megadja, hogy az adott elem hányadik a nagyság szerinti sorrendben):
 ```{r}
 szamvektor[ c( 3, 2, 1, 4, 5, 6 ) ]
 szamvektor[ order( szamvektor ) ]
@@ -197,7 +199,7 @@ szamvektor
 szamvektor[ 10 ]
 ```
 
-Ha nemlétezőnek adunk értéket, automatikusan kiterjeszti a vektort, a többi helyre pedig `NA` kerül:
+Ha nemlétezőnek adunk értéket, automatikusan kiterjeszti a vektort, a többi helyre pedig `NA` kerül (megint újabb példa a kétélű flexibilitásra):
 ```{r}
 szamvektor[ 10 ] <- 999
 szamvektor
@@ -209,13 +211,13 @@ A mátrix homogén, kétdimenziós adatszerkezet.
 
 Legegyszerűbben úgy tölthető fel, ha egy vektort áttördelünk, a `matrix` függvény használatával (az `nc` argumentummal az oszlopok, az `nr` argumentummal a sorok számát állíthatjuk be, értelemszerűen elég a kettőből egyet megadni):
 ```{r}
-szammatrix <- matrix( szamvektor, nc = 2 )
+szammatrix <- matrix( 1:6, nc = 2 )
 szammatrix
 ```
 
 Alapból oszlopok szerint tölt, de a `byrow` argumentummal ezt átállíthatjuk:
 ```{r}
-matrix( szamvektor, nc = 2, byrow = TRUE )
+matrix( 1:6, nc = 2, byrow = TRUE )
 ```
 
 A dimenzió, illetve külön a sorok és oszlopok száma könnyen lekérhető:

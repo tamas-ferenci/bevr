@@ -14,6 +14,12 @@ description: "Ez a jegyzet bevezetést nyújt az R statisztikai programcsomag al
 
 Előszó.
 
+Az R ingyenes, nyílt forráskódú statisztikai környezet.
+
+Az R egyik fontos jellemzője, hogy lényegében minden feladat elvégzéshez programot kell írnunk. Ez elsőre ijesztőnek hangozhat, és csakugyan igaz, hogy más programnyelvekhez képest a tanulási görbéje meredekebben indul: itt már két szám átlagolásához is programot kell írni, míg máshol csak kattintgatni kell. A dolog azonban kifizetődő: lehet, hogy egyszerű dolgokat más statisztikai környezetekben könnyebb végrehajtani, itt meg bonyolultabb, de cserében itt a bonyolultabbakat sem sokkal nehezebb, míg más statisztikai programokban az, vagy egyenesen lehetetlen.
+
+A fentiekből már érthető, hogy ahhoz, hogy el tudjunk kezdeni statisztikai elemzéseket végezni R-ben, először az R-rel mint programozási nyelvvel kell megismerkedni.
+
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
