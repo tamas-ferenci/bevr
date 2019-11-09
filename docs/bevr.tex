@@ -8,9 +8,12 @@
   \usepackage[utf8]{inputenc}
 \else % if luatex or xelatex
   \ifxetex
-    \usepackage{mathspec}
+    %\usepackage{mathspec}
+	\usepackage{fontspec}
+	\usepackage{unicode-math}
   \else
     \usepackage{fontspec}
+	\usepackage{unicode-math}
   \fi
   \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
@@ -21,7 +24,6 @@
 \usepackage{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
 \hypersetup{unicode=true,
             pdftitle={Bevezetés az R statisztikai programcsomag használatába},
@@ -40,37 +42,37 @@
 \usepackage{framed}
 \definecolor{shadecolor}{RGB}{248,248,248}
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -109,7 +111,7 @@
 \usepackage{titling}
 
 % Create subtitle command for use in maketitle
-\newcommand{\subtitle}[1]{
+\providecommand{\subtitle}[1]{
   \posttitle{
     \begin{center}\large#1\end{center}
     }
@@ -125,7 +127,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-02-21}
+    \date{2019-11-09}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -145,49 +147,49 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\chapter{Előszó}\label{eloszo}
+\hypertarget{elux151szuxf3}{%
+\chapter{Előszó}\label{elux151szuxf3}}
 
 Előszó.
 
-\chapter{Általános megjegyzések}\label{altalanos-megjegyzesek}
+Az R ingyenes, nyílt forráskódú statisztikai környezet.
 
-Az R interpretált nyelv, nem fordított, az utasításokat sorról sorra
-hajtja végre. Egy utasítás több sorba is átnyúlhat, ez nem okoz
-problémát (megáll, és várja a további sorokat). Az RStudio-ban
-\texttt{Ctrl+Enter} kombináció használható a futtatásra: ha nincs
-kijelölve semmi, akkor azt a sort futtatja, amiben a kurzur áll, ha ki
-van jelölve valami, akkor a kijelölést. (Függetlenül attól, hogy az
-milyen, lehet több sor is, de egy sor részlete is). Az egész szkript
-\texttt{Ctrl+Alt+R} kombinációval futtatható le. Fontos, hogy ha több
-sorba átnyúló az utasítás, akkor az RStudio futtatja az összeset
-egyetlen \texttt{Ctrl+Enter} ütésre is, de ehhez a legelső sorban kell
-állnunk (értelemszerűen visszafelé nem lát)-
+Az R egyik fontos jellemzője, hogy lényegében minden feladat elvégzéshez programot kell írnunk. Ez elsőre ijesztőnek hangozhat, és csakugyan igaz, hogy más programnyelvekhez képest a tanulási görbéje meredekebben indul: itt már két szám átlagolásához is programot kell írni, míg máshol csak kattintgatni kell. A dolog azonban kifizetődő: lehet, hogy egyszerű dolgokat más statisztikai környezetekben könnyebb végrehajtani, itt meg bonyolultabb, de cserében itt a bonyolultabbakat sem sokkal nehezebb, míg más statisztikai programokban az, vagy egyenesen lehetetlen.
 
-Az egysoros kommentjel a \texttt{\#}, ez RStudio-ban a
-\texttt{Ctrl+Shift+C}-vel szúrható be gyorsan (azon sort kommentezi,
-amelyikben a kurzur áll). Többsoros kommentre nincs külön jel R-ben,
-viszont RStudio-ban a \texttt{Ctrl+Shift+C} használható több sort
-kijelölve is (ha nincsenek kikommentezve, akkor kikommentezi, ha ki
-vannak, akkor eltünteti a kommentjeleket).
+A fentiekből már érthető, hogy ahhoz, hogy el tudjunk kezdeni statisztikai elemzéseket végezni R-ben, először az R-rel mint programozási nyelvvel kell megismerkedni.
 
-Az R case sensitive, tehát az \texttt{a} és az \texttt{A} nem ugyanaz,
-két különböző dolog.
+\hypertarget{uxe1ltaluxe1nos-megjegyzuxe9sek}{%
+\chapter{Általános megjegyzések}\label{uxe1ltaluxe1nos-megjegyzuxe9sek}}
 
-\chapter{Adattípusok,
-adatszerkezetek}\label{adattipusok-adatszerkezetek}
+Egy R-ben írt program, gyakrabban használt nevén szkript, R-beli utasítások sorozata. Lehet egyetlen sor mely két számot átlagol, vagy több ezer utasításból felépülő komplex elemzés. Az R interpretált nyelv, nem fordított, ami azt jelenti, hogy nem a szkript egészét, egyben fordítja le számítógép által végrehajtható kóddá az R, hanem az utasításokat sorról sorra hajtja végre.
 
-\section{Adattípusok, értékadás}\label{adattipusok-ertekadas}
+Az RStudio fejlesztői környezet alapbeállításában a bal oldali rész alján látható a konzol, ahol közvetlenül beküldhetünk utasításokat az R-nek, felette pedig a szkript, vagy szkriptek. Új szkriptet megnyitni (vagy az elsőt megnyitni, ha még egy sincs nyitva - ez esetben a konzol az egész bal oldalt elfoglalja) a \texttt{Ctrl+Shift+N} billentyűkombinációval, vagy az ikonsor bal szélső ikonjára (fehér lap zöld plusz-jellel) kattintva, és ott az \texttt{R\ Script} pontot választva lehet.
 
-Az értékedás jele az R-ben a \texttt{\textless{}-}. (Az \texttt{=}-t ne
-használjuk értékadásra, csak függvényben az argumentum értékének
-megadására!). Az R-ben a változókat nem kell külön deklarálni,
-értékadással maguktól létrejönnek, ha korábban még nem léteztek.
+A konzolba írt utasítások azonnal végrehajtódnak (amint \texttt{Enter}-t ütünk, és ezzel beküldjük az utasítást az R-nek), a szkriptbe írt parancsok pedig a \texttt{Ctrl+Enter} billentyűkombinációval futtathatóak. (Valójában ez sem mond ellent annak a szabálynak, hogy a konzolba írt dolgok futtatódnak, mert ha jobban megfigyeljük, akkor láthatjuk, hogy a \texttt{Ctrl+Enter} igazából csak átmásolja az utasítást a konzolba, majd beküldi.) Ha a szkriptben nincs kijelölve semmi, akkor a \texttt{Ctrl+Enter} azt a sort futtatja, amiben a kurzur áll, ha ki van jelölve valami, akkor a kijelölést. (Függetlenül attól, hogy az milyen, lehet több sor is, de egy sor részlete is). Egy utasítás több sorba is átnyúlhat, ez nem okoz problémát (megáll, és várja a további sorokat). Az egész szkript \texttt{Ctrl+Alt+R} kombinációval futtatható le. Fontos, hogy ha több sorba átnyúló az utasítás, akkor az RStudio futtatja az összeset egyetlen \texttt{Ctrl+Enter} ütésre is, de ehhez a legelső sorban kell állnunk (értelemszerűen visszafelé nem lát).
 
-Fontos! Ez általában is igaz: az szintaktikailag flexibilis, ``megengedi
-trehányságot'' -- ami viszont kétélű fegyver!
+Az aktuálisan szerkesztett szkript \texttt{Ctrl+S} utasítással, vagy az ikonsorban a kék színű, egy darab floppy-lemezes ikonra kattintva menthető. A R-szkriptek alapértelmezett kiterjesztése a \texttt{.R}. A \texttt{Ctrl+Alt+S} parancs, vagy a kék színű, több floppy-lemezes ikon az összes megnyitott szkriptet menti. Az RStudio képes megőrizni a nem mentett szkripteket is kilépésnél (a nevük \texttt{Untitled} majd utána egy sorszám), de erre a lehetőségre azért ne nagyon építsünk, mert egy összeomlásnál elveszhetnek; a biztos a névvel lementett szkript. Mentett szkriptet megnyitni a \texttt{Ctrl+O} billentyűparanccsal, vagy az ikonsorban a mappából kifelé mutató zöld nyilas ikonnal lehet.
 
-Az \texttt{str} általában a legjobb leírója egy objektumnak. A
-\texttt{typeof} az objektum típusát adja meg.
+Minden kicsit is komolyabb munkánkat érdemes szkriptben megírni, hiszen így lesz az elemzési munkafolyamat reprodukálható. A konzolt tipikusan csak gyors, ismétlődően nem igényelt egyszerű számításokhoz, vagy szkriptírás közben az apróbb bizonytalanságok eldöntéséhez (hogy is kell ezt a parancsot pontosan meghívni?) használjuk.
+
+A kódunkat érdemes kommentelni, hogy később is világos legyen a működése. A komment olyan része a szkriptnek, melyet az R nem hajt végre, hiszen tudja, hogy nem R utasítás, hanem természetes nyelven írt megjegyzés. Ennek elkülönítésére a kommentjel szolgál, ez az R-ben a \texttt{\#}: amennyiben az R egy ilyenhez ér, onnantól átugorja a leírtakat egészen a sor végéig. (Ez tehát ún. egysoros kommentjel.) A \texttt{\#} az RStudio-ban a \texttt{Ctrl+Shift+C}-vel szúrható be gyorsan (azon sort kommentezi, mégpedig az elejétől fogva, amelyikben a kurzur áll). Többsoros kommentre nincs külön jel R-ben, viszont RStudio-ban a \texttt{Ctrl+Shift+C} használható több sort kijelölve is (ha nincsenek kikommentezve, akkor kikommentezi, ha ki vannak, akkor eltünteti a kommentjeleket).
+
+Az R kisbetű/nagybetű különbségre érzékeny (case sensitive) nyelv, tehát az \texttt{a} és az \texttt{A} nem ugyanaz, két különböző dolog.
+
+\hypertarget{adattuxedpusok-adatszerkezetek}{%
+\chapter{Adattípusok, adatszerkezetek}\label{adattuxedpusok-adatszerkezetek}}
+
+Az R programozásának megértéséhez szükséges egyik alapelemünk a változó: változóban tudunk információt tárolni, legyen az egyetlen szám vagy egy egész adatbázis, vagy akár egy regressziós modell. Változóból tetszőleges számút létrehozhatunk.
+
+Változó értéket az értékadás művelettel kap; ez kb. a ,,legyen egyenlő'' módon olvasható ki. Az R-ben nem kell előre megmondanunk, hogy milyen változókra van szükségünk: ha egy eddig még nem létező változónak adunk értéket, akkor az R automatikusan létrehozza. (Majd természetesen az értékét is beállítja arra, amit megadtunk.) Már létező változónak történő értékadásnál az előző érték elveszlik, és felülíródik az aktuálisan megadottal.
+
+Az a tény, hogy az R - nagyon sok más programnyelvvel szemben! - megengedi ezt, tehát, hogy nem létező változónak is adhatunk értéket, és ilyenkor azt ő automatikusan, a háttérben, anélkül, hogy bármit szólna, létrehozza, egy jó példa az R általános filozófiájára, ami sok helyen előjön. Jelesül: az R szintaktikailag flexibilis, ,,megengedi trehányságot'' -- ami viszont kétélű fegyver! Egyfelől ugyanis nagyon kényelmes, jelen esetben, hogy nem kell törődnünk a változók előzetes deklarálásával, de másrészt így könnyebben előfordulhat, hogy olyat csinálunk, amit igazából nem szeretnénk -- csak épp észre sem vesszük! Elírjuk a változó nevét, és nem figyelmeztetést kapunk, hogy de hát ilyen változó nem létezik, hanem egyetlen hang nélkül létrejön egy új, hibás nevű (miközben az igazi értéke marad változatlan). És ez talán még a legkevésbé éles példa.
+
+\hypertarget{adattuxedpusok-vuxe1ltozuxf3-uxe9rtuxe9kaduxe1s}{%
+\section{Adattípusok, változó, értékadás}\label{adattuxedpusok-vuxe1ltozuxf3-uxe9rtuxe9kaduxe1s}}
+
+Az értékedás jele az R-ben a \texttt{\textless{}-}. (Az \texttt{=}-t ne használjuk értékadásra, csak függvényben az argumentum értékének megadására!).
+
+Az \texttt{str} általában a legjobb leírója egy objektumnak. A \texttt{typeof} az objektum típusát adja meg.
 
 Az R-ben 4 fontos adattípus van (type, mode).
 
@@ -269,12 +271,9 @@ Attól mert valami történetesen egész, még double pontosságú lesz:
 ## [1] "double"
 \end{verbatim}
 
-A double pontossága jellemzően 53 bit (kb. \(-2\cdot 10^{308}\)-tól
-\(2\cdot 10^{308}\)-ig nagyjából \(2\cdot 10^{-16}\) felbontással; az
-adott architektúra vonatkozó értéket a \texttt{.Machine} megmondja).
+A double pontossága jellemzően 53 bit (kb. \(-2\cdot 10^{308}\)-tól \(2\cdot 10^{308}\)-ig nagyjából \(2\cdot 10^{-16}\) felbontással; az adott architektúra vonatkozó értéket a \texttt{.Machine} megmondja).
 
-Ha egészet (integer) akarunk, azt külön kell jelölni az \texttt{L}
-utótaggal:
+Ha egészet (integer) akarunk, azt külön kell jelölni az \texttt{L} utótaggal:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -307,8 +306,7 @@ utótaggal:
 ## [1] "integer"
 \end{verbatim}
 
-A numeric a mode, a double/integer a type. A többi adattípusnál a kettő
-egybeesik.
+A numeric a mode, a double/integer a type. A többi adattípusnál a mode és a type egybeesik.
 
 Karakter:
 
@@ -343,12 +341,7 @@ Karakter:
 ## [1] "character"
 \end{verbatim}
 
-Mint látható, a sztringkonstansokat idézőjellel kell jelölni. Az R
-megengedi a dupla (\texttt{"\ "}) és a szimpla
-(\texttt{\textquotesingle{}\ \textquotesingle{}}) idézőjel használatát
-is, de az előbbi a preferált (az R általi kiírás is mindenképp ilyennel
-történik), az utóbbit érdemes az egymásbaágyazott esetekre használni
-(tehát, ha egy sztringkonstans tartalmaz egy idézőjeles részt).
+Mint látható, a sztringkonstansokat idézőjellel kell jelölni. Az R megengedi a dupla (\texttt{"\ "}) és a szimpla (\texttt{\textquotesingle{}\ \textquotesingle{}}) idézőjel használatát is, de az előbbi a preferált (az R általi kiírás is mindenképp ilyennel történik), az utóbbit érdemes az egymásbaágyazott esetekre használni (tehát, ha egy sztringkonstans tartalmaz egy idézőjeles részt).
 
 Logikai:
 
@@ -383,11 +376,9 @@ Logikai:
 ## [1] "logical"
 \end{verbatim}
 
-A \texttt{TRUE} rövidíthető \texttt{T}-nek, a \texttt{FALSE} pedig
-\texttt{F}-nek.
+A \texttt{TRUE} rövidíthető \texttt{T}-nek, a \texttt{FALSE} pedig \texttt{F}-nek.
 
-Adott típus tesztelése az \texttt{is.\textless{}tipus\textgreater{}}
-alakban lehet:
+Adott típus tesztelése az \texttt{is.\textless{}tipus\textgreater{}} alakban lehet:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -429,7 +420,7 @@ alakban lehet:
 ## [1] FALSE
 \end{verbatim}
 
-Az \texttt{is.numeric} azt jelenti, hogy is.integer vagy is.double:
+Az \texttt{is.numeric} azt jelenti, hogy \texttt{is.integer} vagy \texttt{is.double}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -471,12 +462,9 @@ Az \texttt{is.numeric} azt jelenti, hogy is.integer vagy is.double:
 ## [1] TRUE
 \end{verbatim}
 
-Elvileg még két adattípus van, a \texttt{raw} és a \texttt{complex}, nem
-olyan fontosak. Van olyan dolog - például faktor - ami adattípusnak
-tűnik, de mégsem az (egy másik típus speciális eset).
+Elvileg még két adattípus van, a \texttt{raw} és a \texttt{complex}, nem olyan fontosak. Van olyan dolog - például faktor - ami adattípusnak tűnik, de mégsem az (egy másik típus speciális esete).
 
-Adott típussá alakítás \texttt{as.\textless{}tipus\textgreater{}}
-alakban lehet:
+Adott típussá alakítás \texttt{as.\textless{}tipus\textgreater{}} alakban lehet:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -522,31 +510,25 @@ alakban lehet:
 ## [1] 1
 \end{verbatim}
 
-Konvertálásnál az ,,erősorrend'': character \textless{} double = integer
-\textless{} logical (a \texttt{T} 1-re, a \texttt{F} 0-ra alakul, a
-többi értelemszerű). Az ezt sértő dolgok NA-t adnak. Sok parancs
-automatikusan konvertál!
+Konvertálásnál az ,,erősorrend'': character \textless{} double = integer \textless{} logical (a \texttt{T} 1-re, a \texttt{F} 0-ra alakul, a többi értelemszerű). Az ezt sértő dolgok NA-t adnak. Sok parancs automatikusan konvertál!
 
-Hiányzó értéket \texttt{NA} jelöli (adott típusú hiányzó adat
-\texttt{NA\_real\_}, \texttt{NA\_integer\_} és \texttt{NA\_character\_}
-módokon kérhető).
+Hiányzó értéket \texttt{NA} jelöli (adott típusú hiányzó adat \texttt{NA\_real\_}, \texttt{NA\_integer\_} és \texttt{NA\_character\_} módokon kérhető).
 
-Speciális szerepe van még a \texttt{NULL}-nak (ez inkább olyasmit jelöl,
-hogy ,,üres objektum'').
+Speciális szerepe van még a \texttt{NULL}-nak (ez inkább olyasmit jelöl, hogy ,,üres objektum''), illetve az \texttt{NaN}-nek (not-a-number, tipikusan olyan adja, mint például ha negatív szám logaritmusát vesszük).
 
-\section{Adatszerkezetek és
-indexelés}\label{adatszerkezetek-es-indexeles}
+\hypertarget{adatszerkezetek-uxe9s-indexeluxe9s}{%
+\section{Adatszerkezetek és indexelés}\label{adatszerkezetek-uxe9s-indexeluxe9s}}
 
-\subsection{Vektor}\label{vektor}
+\hypertarget{vektor}{%
+\subsection{Vektor}\label{vektor}}
 
 A vektor homogén, 1 dimenziós adatszerkezet.
 
-Legegyszerűbb módon az elemei felsorolásával hozható létre, ehhez a
-\texttt{c} függvény használható:
+Legegyszerűbb módon az elemei felsorolásával hozható létre, ehhez a \texttt{c} függvény használható:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{szamvektor <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\OperatorTok{-}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{10}\NormalTok{)}
+\NormalTok{szamvektor <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{-2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{10}\NormalTok{)}
 \NormalTok{szamvektor}
 \end{Highlighting}
 \end{Shaded}
@@ -575,9 +557,7 @@ Legegyszerűbb módon az elemei felsorolásával hozható létre, ehhez a
 ## [1] 6
 \end{verbatim}
 
-Az \texttt{{[}1{]}} a sor elején nem része a vektornak, az
-olvashatóságot segíti, amint azt a következő példa mutatja (a \texttt{:}
-egész számokból generál sorozatot):
+Az \texttt{{[}1{]}} a sor elején nem része a vektornak, az olvashatóságot segíti, amint azt a következő példa mutatja (a \texttt{:} egész számokból generál sorozatot):
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -616,8 +596,7 @@ Skalár nincs az R-ben, ami annak tűnik, az igazából 1 elemű vektor:
 ## [1] 1
 \end{verbatim}
 
-Természetesen nem csak numerikus adatokból képezhető vektor, hanem
-bármilyenből:
+Természetesen nem csak numerikus adatokból képezhető vektor, hanem bármilyenből:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -650,9 +629,7 @@ bármilyenből:
 ## [1] 3
 \end{verbatim}
 
-A vektor homogén, az alábbi utasítások csak azért futnak le mégis, mert
-a háttérben ilyenkor az R a ,,leggyengébbre'' konvertálja az összeset
-(hogy kikényszerítse a homogenitást):
+A vektor homogén, az alábbi utasítások csak azért futnak le mégis, mert a háttérben ilyenkor az R a ,,leggyengébbre'' konvertálja az összeset (hogy kikényszerítse a homogenitást):
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -674,8 +651,7 @@ a háttérben ilyenkor az R a ,,leggyengébbre'' konvertálja az összeset
 ## [1] 2 1
 \end{verbatim}
 
-A vektor elemei el is nevezhetőek; a nevek később a \texttt{names}-zel
-lekérhetőek, és át is állíthatóak:
+A vektor elemei el is nevezhetőek; a nevek később a \texttt{names}-zel lekérhetőek, és át is állíthatóak:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -711,11 +687,9 @@ lekérhetőek, és át is állíthatóak:
 ##       4       1       7
 \end{verbatim}
 
-Látható, hogy a \texttt{names} ,,kétirányú``: szolgáltat nekünk
-adatokat, de bele is nyilazhatunk értéket, ez utóbbi esetben beállítja.
+Látható, hogy a \texttt{names} ,,kétirányú``: szolgáltat nekünk adatokat, de bele is nyilazhatunk értéket, ez utóbbi esetben beállítja.
 
-A indexelés lehet számmal vagy vektorral (ugye igazából ugyanaz!), adott
-pozició vagy pozíciók kiválaszthatóak:
+A indexelés lehet számmal vagy vektorral (ugye igazából ugyanaz!), adott pozició vagy pozíciók kiválaszthatóak:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -752,8 +726,7 @@ Egy elem kiválasztható többször is:
 ##       1       1
 \end{verbatim}
 
-Kiválasztható az összes elem is, ekkor lényegében csak a sorrendet
-módosítjuk:
+Kiválasztható az összes elem is, ekkor lényegében csak a sorrendet módosítjuk (az \texttt{order} megadja, hogy az adott elem hányadik a nagyság szerinti sorrendben):
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -790,8 +763,7 @@ Nemlétező elem indexelése \texttt{NA}-t ad:
 ##   NA
 \end{verbatim}
 
-Lehetséges negatív indexelés is, ez kiválaszt mindent, \emph{kivéve}
-amit indexeltünk:
+Lehetséges negatív indexelés is, ez kiválaszt mindent, \emph{kivéve} amit indexeltünk:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -815,8 +787,7 @@ amit indexeltünk:
 ##       1
 \end{verbatim}
 
-Indexelhetünk logikai tömbbel is, ugyanolyan hosszú kell legyen mint az
-eredeti, és azokat választja ki, ahol \texttt{T} van:
+Indexelhetünk logikai tömbbel is, ugyanolyan hosszú kell legyen mint az eredeti, és azokat választja ki, ahol \texttt{T} van:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -829,9 +800,7 @@ eredeti, és azokat választja ki, ahol \texttt{T} van:
 ##      4      7     NA     NA
 \end{verbatim}
 
-Rövidebb tömbbel indexelés csak azért fog működik, mert ilyenkor az R
-reciklálja az indexelő vektort. (Ez általában is így van: újabb példa a
-kétélű flexibilitásra.)
+Rövidebb tömbbel indexelés csak azért fog működik, mert ilyenkor az R reciklálja az indexelő vektort. (Ez általában is így van: újabb példa a kétélű flexibilitásra.)
 
 Ha vannak elnevezések, akkor azok használhatóak indexelésre is:
 
@@ -882,8 +851,7 @@ Az indexelés és az értékadás kombinálható is:
 ##   NA
 \end{verbatim}
 
-Ha nemlétezőnek adunk értéket, automatikusan kiterjeszti a vektort, a
-többi helyre pedig \texttt{NA} kerül:
+Ha nemlétezőnek adunk értéket, automatikusan kiterjeszti a vektort, a többi helyre pedig \texttt{NA} kerül (megint újabb példa a kétélű flexibilitásra):
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -899,47 +867,40 @@ többi helyre pedig \texttt{NA} kerül:
 ##     999
 \end{verbatim}
 
-\subsection{Mátrix}\label{matrix}
+\hypertarget{muxe1trix}{%
+\subsection{Mátrix}\label{muxe1trix}}
 
 A mátrix homogén, kétdimenziós adatszerkezet.
 
-Legegyszerűbben úgy tölthető fel, ha egy vektort áttördelünk, a
-\texttt{matrix} függvény használatával (az \texttt{nc} argumentummal az
-oszlopok, az \texttt{nr} argumentummal a sorok számát állíthatjuk be,
-értelemszerűen elég a kettőből egyet megadni):
+Legegyszerűbben úgy tölthető fel, ha egy vektort áttördelünk, a \texttt{matrix} függvény használatával (az \texttt{nc} argumentummal az oszlopok, az \texttt{nr} argumentummal a sorok számát állíthatjuk be, értelemszerűen elég a kettőből egyet megadni):
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{szammatrix <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(szamvektor, }\DataTypeTok{nc =} \DecValTok{2}\NormalTok{)}
+\NormalTok{szammatrix <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{6}\NormalTok{, }\DataTypeTok{nc =} \DecValTok{2}\NormalTok{)}
 \NormalTok{szammatrix}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ##      [,1] [,2]
-## [1,]    4   NA
-## [2,]    1   NA
-## [3,]   99   NA
-## [4,]   NA   NA
-## [5,]   NA  999
+## [1,]    1    4
+## [2,]    2    5
+## [3,]    3    6
 \end{verbatim}
 
-Alapból oszlopok szerint tölt, de a \texttt{byrow} argumentummal ezt
-átállíthatjuk:
+Alapból oszlopok szerint tölt, de a \texttt{byrow} argumentummal ezt átállíthatjuk:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{matrix}\NormalTok{(szamvektor, }\DataTypeTok{nc =} \DecValTok{2}\NormalTok{, }\DataTypeTok{byrow =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{6}\NormalTok{, }\DataTypeTok{nc =} \DecValTok{2}\NormalTok{, }\DataTypeTok{byrow =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ##      [,1] [,2]
-## [1,]    4    1
-## [2,]   99   NA
-## [3,]   NA   NA
-## [4,]   NA   NA
-## [5,]   NA  999
+## [1,]    1    2
+## [2,]    3    4
+## [3,]    5    6
 \end{verbatim}
 
 A dimenzió, illetve külön a sorok és oszlopok száma könnyen lekérhető:
@@ -951,7 +912,7 @@ A dimenzió, illetve külön a sorok és oszlopok száma könnyen lekérhető:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 5 2
+## [1] 3 2
 \end{verbatim}
 
 \begin{Shaded}
@@ -961,7 +922,7 @@ A dimenzió, illetve külön a sorok és oszlopok száma könnyen lekérhető:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 5
+## [1] 3
 \end{verbatim}
 
 \begin{Shaded}
@@ -974,12 +935,9 @@ A dimenzió, illetve külön a sorok és oszlopok száma könnyen lekérhető:
 ## [1] 2
 \end{verbatim}
 
-A mátrix oszlopai és sorai is elnevezhetőek, emiatt itt nem egy
-\texttt{names} van, hanem egy \texttt{row.names} és egy \texttt{names},
-ez utóbbi az oszlopnév, de egyebekben teljesen hasonlóan viselkednek.
+A mátrix oszlopai és sorai is elnevezhetőek, emiatt itt nem egy \texttt{names} van, hanem egy \texttt{row.names} és egy \texttt{names}, ez utóbbi az oszlopnév, de egyebekben teljesen hasonlóan viselkednek.
 
-Indexelés ugyanúgy végezhető, csak épp mindkét dimenzióra mondanunk kell
-valamit; a kettő vesszővel választandó el:
+Indexelés ugyanúgy végezhető, csak épp mindkét dimenzióra mondanunk kell valamit; a kettő vesszővel választandó el:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -988,11 +946,10 @@ valamit; a kettő vesszővel választandó el:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] NA NA
+## [1] 5 6
 \end{verbatim}
 
-Mindkét dimenzió tetszőleges korábban látott módon indexelhető, tehát a
-különböző módok keverhetőek is:
+Mindkét dimenzió tetszőleges korábban látott módon indexelhető, tehát a különböző módok keverhetőek is:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1001,11 +958,10 @@ különböző módok keverhetőek is:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 4 1
+## [1] 1 2
 \end{verbatim}
 
-Ha egy dimenziót nem indexelünk, akkor az R úgy érti, hogy onnan minden
-elem (de a vessző ekkor sem hagyható el!):
+Ha egy dimenziót nem indexelünk, akkor az R úgy érti, hogy onnan minden elem (de a vessző ekkor sem hagyható el!):
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1014,28 +970,22 @@ elem (de a vessző ekkor sem hagyható el!):
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  1 NA
+## [1] 2 5
 \end{verbatim}
 
-\subsection{Tömb (array)}\label{tomb-array}
+\hypertarget{tuxf6mb-array}{%
+\subsection{Tömb (array)}\label{tuxf6mb-array}}
 
-A tömb (array) homogén, \(n\)-dimenziós adatszerkezet (nem foglalkozunk
-vele részletesebben, ritkán használatos).
+A tömb (array) homogén, \(n\)-dimenziós adatszerkezet (nem foglalkozunk vele részletesebben, ritkán használatos).
 
-\subsection{Data frame}\label{data-frame}
+\hypertarget{data-frame}{%
+\subsection{Data frame}\label{data-frame}}
 
-A data frame (adatkeret) heterogén, kétdimenziós, rektanguláris
-adatszerkezet. Pontosabban szólva félig heterogén: az oszlopok
-homogének, de a különböző oszlopok típusai eltérhetnek egymástól.
-Lényegében tehát - nem feltétlenül ugyanolyan típusú - vektorok
-összefogva; a rektanguláris azt jelenti, hogy minden vektor ugyanolyan
-hosszú kell legyen.
+A data frame (adatkeret) heterogén, kétdimenziós, rektanguláris adatszerkezet. Pontosabban szólva félig heterogén: az oszlopok homogének, de a különböző oszlopok típusai eltérhetnek egymástól. Lényegében tehát - nem feltétlenül ugyanolyan típusú - vektorok összefogva; a rektanguláris azt jelenti, hogy minden vektor ugyanolyan hosszú kell legyen.
 
-Ez a legtipikusabb adatszerkezet orvosi adatok tárolására: sorokban a
-megfigyelési egységek, oszlopokban a változók.
+Ez a legtipikusabb adatszerkezet orvosi adatok tárolására: sorokban a megfigyelési egységek, oszlopokban a változók.
 
-A \texttt{data} paranccsal egy kiegészítő csomagban található kész adat
-tölthető be:
+A \texttt{data} paranccsal egy kiegészítő csomagban található kész adat tölthető be:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1237,8 +1187,7 @@ tölthető be:
 ## 84    1  21 130    1     1   0  1  0   3 2495
 \end{verbatim}
 
-Csak a felső néhány sor a \texttt{head} paranccsal kérhető le (az alsó
-néhány sor pedig a \texttt{tail}-lel):
+Csak a felső néhány sor a \texttt{head} paranccsal kérhető le (az alsó néhány sor pedig a \texttt{tail}-lel):
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1334,8 +1283,7 @@ Az adatkeret a mátrixhoz hasonlóan indexelhető:
 ## 87     1   0
 \end{verbatim}
 
-Sőt, ha vannak elnevezéseink, az is használható. A következő 4 mind
-egyenértékű:
+Sőt, ha vannak elnevezéseink, az is használható. A következő 4 mind egyenértékű:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1429,9 +1377,7 @@ egyenértékű:
 ## [183] 2466 2466 2466 2495 2495 2495 2495
 \end{verbatim}
 
-A nem dupla szögletes zárójellel történő indexelés eltérése, hogy nem a
-kiválasztott vektort, hanem egy csak a kiválasztott vektorból álló data
-frame-et ad vissza:
+A nem dupla szögletes zárójellel történő indexelés eltérése, hogy nem a kiválasztott vektort, hanem egy csak a kiválasztott vektorból álló data frame-et ad vissza:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1493,8 +1439,7 @@ frame-et ad vissza:
 ##  $ bwt: int  2523 2551 2557 2594 2600 2622 2637 2637 2663 2665 ...
 \end{verbatim}
 
-Használhatunk különféle módszereket (az alábbiak közül a második a
-logikai indexelés miatt fog működni):
+Használhatunk különféle módszereket (az alábbiak közül a második a logikai indexelés miatt fog működni):
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1584,12 +1529,12 @@ Az adatkeret heterogén:
 ##  $ nev  : chr  "a" "a" "a" "a" ...
 \end{verbatim}
 
-\subsection{Lista}\label{lista}
+\hypertarget{lista}{%
+\subsection{Lista}\label{lista}}
 
 A lista heterogén, egydimenziós adatszerkezet.
 
-Legegyszerűbben elemei felsorolásával hozható létre, a \texttt{list}
-függvényt használva:
+Legegyszerűbben elemei felsorolásával hozható létre, a \texttt{list} függvényt használva:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1611,11 +1556,9 @@ függvényt használva:
 ## 
 ## $m
 ##      [,1] [,2]
-## [1,]    4   NA
-## [2,]    1   NA
-## [3,]   99   NA
-## [4,]   NA   NA
-## [5,]   NA  999
+## [1,]    1    4
+## [2,]    2    5
+## [3,]    3    6
 ## 
 ## $df
 ##    low age lwt race smoke ptl ht ui ftv  bwt nev
@@ -1637,7 +1580,7 @@ függvényt használva:
 ##  $ sz: Named num [1:10] 4 1 99 NA NA NA NA NA NA 999
 ##   ..- attr(*, "names")= chr [1:10] "elso" "masodik" "utolso" "" ...
 ##  $ k : chr [1:3] "a" "b" "xyz"
-##  $ m : num [1:5, 1:2] 4 1 99 NA NA NA NA NA NA 999
+##  $ m : int [1:3, 1:2] 1 2 3 4 5 6
 ##  $ df:'data.frame':  5 obs. of  11 variables:
 ##   ..$ low  : int [1:5] 0 0 0 0 0
 ##   ..$ age  : int [1:5] 19 33 20 21 18
@@ -1693,8 +1636,7 @@ Számmal és -- ha van neki -- névvel is indexelhető:
 ##     999
 \end{verbatim}
 
-Az egy zárójellel történő indexelés látszólag ugyanaz, de csak
-látszólag:
+Az egy zárójellel történő indexelés látszólag ugyanaz, de csak látszólag:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1775,19 +1717,17 @@ Az előbbi dolgok természetesen kombinálhatóak is:
 ##     999
 \end{verbatim}
 
-Az adatkeret igazából egy, az oszlopokból - mint vektorokból -
-összerakott lista (tehát két szűkítés van: az elemek csak vektorok
-lehetnek \emph{és} ugyanolyan hosszúaknak kell lenniük).
+Az adatkeret igazából egy, az oszlopokból - mint vektorokból - összerakott lista (tehát két szűkítés van: az elemek csak vektorok lehetnek \emph{és} ugyanolyan hosszúaknak kell lenniük).
 
-\chapter{Függvények}\label{fuggvenyek}
+\hypertarget{fuxfcggvuxe9nyek}{%
+\chapter{Függvények}\label{fuxfcggvuxe9nyek}}
 
 A függvényekről
 
-\section{Függvényhívások}\label{fuggvenyhivasok}
+\hypertarget{fuxfcggvuxe9nyhuxedvuxe1sok}{%
+\section{Függvényhívások}\label{fuxfcggvuxe9nyhuxedvuxe1sok}}
 
-Függvény úgy hívható, hogy megadjuk a nevét, majd utána zárójelben az
-argumentumát, vagy argumentumait (lehet, hogy egy sincs, de a zárójelet
-ekkor is ki kell írni):
+Függvény úgy hívható, hogy megadjuk a nevét, majd utána zárójelben az argumentumát, vagy argumentumait (lehet, hogy egy sincs, de a zárójelet ekkor is ki kell írni):
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1800,12 +1740,9 @@ ekkor is ki kell írni):
 ##  709 2414 2977 3487 4990
 \end{verbatim}
 
-Függvényről súgó a kérdőjellel kapható (két kérdőjel az összes ismert
-függvényt végigkeresi, akár névtöredékre is): \texttt{?quantile}.
+Függvényről súgó a kérdőjellel kapható (két kérdőjel az összes ismert függvényt végigkeresi, akár névtöredékre is): \texttt{?quantile}.
 
-Aminél egyenlőségjellel adva van érték a specifikációban, ott az
-default-ként viselkedik, nem kötelező megadni, viszont a default-tal nem
-rendelkezőket muszáj:
+Aminél egyenlőségjellel adva van érték a specifikációban, ott az default-ként viselkedik, nem kötelező megadni, viszont a default-tal nem rendelkezőket muszáj:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1817,8 +1754,7 @@ rendelkezőket muszáj:
 ## Error in is.factor(x): argument "x" is missing, with no default
 \end{verbatim}
 
-Ha több argumentumot adunk meg, akkor azok a felsorolás sorrendjében
-osztódnak ki:
+Ha több argumentumot adunk meg, akkor azok a felsorolás sorrendjében osztódnak ki:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1842,8 +1778,7 @@ osztódnak ki:
 ## 2388 2977 3169
 \end{verbatim}
 
-Argumentumra hivatkozhatunk névvel is, ez esetben nem kell a felsorolás
-sorrendjével törődnünk:
+Argumentumra hivatkozhatunk névvel is, ez esetben nem kell a felsorolás sorrendjével törődnünk:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1867,14 +1802,9 @@ sorrendjével törődnünk:
 ## 2381 2977 3175
 \end{verbatim}
 
-Az általános gyakorlat az, hogy az első két-három argumentumot adhatjuk
-meg név nélkül (ezeknél elvárható, hogy fejből is tudja az ember, hogy
-mit jelent), de a többinél elegánsabb, ha mindenképp adunk nevet (tehát
-akkor is, ha sorrendben írjuk).
+Az általános gyakorlat az, hogy az első két-három argumentumot adhatjuk meg név nélkül (ezeknél elvárható, hogy fejből is tudja az ember, hogy mit jelent), de a többinél elegánsabb, ha mindenképp adunk nevet (tehát akkor is, ha sorrendben írjuk).
 
-Egy függvény hívásánál az argumentumai elkülöníthetőek egy listába, majd
-ugyanaz a hatása a \texttt{do.call} használatával elérhető (első
-argumentum a függvény, második az átadandó argumentumok listája):
+Egy függvény hívásánál az argumentumai elkülöníthetőek egy listába, majd ugyanaz a hatása a \texttt{do.call} használatával elérhető (első argumentum a függvény, második az átadandó argumentumok listája):
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1898,9 +1828,7 @@ argumentum a függvény, második az átadandó argumentumok listája):
 ## 2381 2977 3175
 \end{verbatim}
 
-Ez akkor jön jól, ha nem tudjuk előre, hogy mik az argumentumok (akár
-azt sem, hogy hány darab van belőlük!), pl. mert egy \texttt{lapply}-jal
-gyártottuk le, lásd később:
+Ez akkor jön jól, ha nem tudjuk előre, hogy mik az argumentumok (akár azt sem, hogy hány darab van belőlük!), pl. mert egy \texttt{lapply}-jal gyártottuk le, lásd később:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1941,18 +1869,20 @@ gyártottuk le, lásd később:
 ## nev   NA                   "a"
 \end{verbatim}
 
-\section{Saját függény definiálása}\label{sajat-fuggeny-definialasa}
+\hypertarget{sajuxe1t-fuxfcgguxe9ny-definiuxe1luxe1sa}{%
+\section{Saját függény definiálása}\label{sajuxe1t-fuxfcgguxe9ny-definiuxe1luxe1sa}}
 
 Ilyet is lehet.
 
-\chapter{Az R programozása}\label{az-r-programozasa}
+\hypertarget{az-r-programozuxe1sa}{%
+\chapter{Az R programozása}\label{az-r-programozuxe1sa}}
 
 Programozás.
 
-\section{Funkcionális programozás}\label{funkcionalis-programozas}
+\hypertarget{funkcionuxe1lis-programozuxe1s}{%
+\section{Funkcionális programozás}\label{funkcionuxe1lis-programozuxe1s}}
 
-Az R, bár többféle paradigmában is tud dolgozni, érezhető funkcionális
-nyelv. Ezt elegáns is, célszerű is kihasználni!
+Az R, bár többféle paradigmában is tud dolgozni, érezhető funkcionális nyelv. Ezt elegáns is, célszerű is kihasználni!
 
 Egy példa:
 
@@ -2022,11 +1952,7 @@ Egy példa:
 ## [1] 324
 \end{verbatim}
 
-A \texttt{lapply} az első argumentumban megadott lista minden elemére
-ráereszti a második argumentumban megadott függvényt, és az eredményt
-összefűzi egy listává (a \texttt{sapply} csak annyiban tér el, hogy
-lista helyett vektort ad vissza, ha lehetséges a listát vektorrá
-konvertálni):
+A \texttt{lapply} az első argumentumban megadott lista minden elemére ráereszti a második argumentumban megadott függvényt, és az eredményt összefűzi egy listává (a \texttt{sapply} csak annyiban tér el, hogy lista helyett vektort ad vissza, ha lehetséges a listát vektorrá konvertálni):
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2163,13 +2089,9 @@ konvertálni):
 ## [1] NA  "a"
 \end{verbatim}
 
-A harmadik sor példát mutat arra, hogy anonim függvény is használható,
-az utolsó előtti pedig arra, hogy a data.frame igazából lista, aminek az
-elemei az oszlopai.
+A harmadik sor példát mutat arra, hogy anonim függvény is használható, az utolsó előtti pedig arra, hogy a data.frame igazából lista, aminek az elemei az oszlopai.
 
-Az \texttt{apply} az első argumentumban megadott mátrix vagy adatkeret
-minden sorára vagy oszlopára (ezt a második argumentum dönti el)
-ráereszti a harmadik argumentumban megadott függvényt:
+Az \texttt{apply} az első argumentumban megadott mátrix vagy adatkeret minden sorára vagy oszlopára (ezt a második argumentum dönti el) ráereszti a harmadik argumentumban megadott függvényt:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2248,9 +2170,7 @@ ráereszti a harmadik argumentumban megadott függvényt:
 ## "1" "1" "1" "1" "1" "1" "1" "1" "1"
 \end{verbatim}
 
-A \texttt{tapply} az első argumentumban megadott változó második
-argumentum szerint képezett csoportjaira ráereszti a harmadik
-argumentumban megadott függvényt:
+A \texttt{tapply} az első argumentumban megadott változó második argumentum szerint képezett csoportjaira ráereszti a harmadik argumentumban megadott függvényt:
 
 \begin{Shaded}
 \begin{Highlighting}[]

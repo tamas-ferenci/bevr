@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Bevezetés az R statisztikai programcsomag használatába</title>
+  <title>4 . fejezet Függvények | Bevezetés az R statisztikai programcsomag használatába</title>
   <meta name="description" content="Ez a jegyzet bevezetést nyújt az R statisztikai programcsomag alapjaiba." />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Bevezetés az R statisztikai programcsomag használatába" />
+  <meta property="og:title" content="4 . fejezet Függvények | Bevezetés az R statisztikai programcsomag használatába" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tamas-ferenci/bevr" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Bevezetés az R statisztikai programcsomag használatába" />
+  <meta name="twitter:title" content="4 . fejezet Függvények | Bevezetés az R statisztikai programcsomag használatába" />
   
   <meta name="twitter:description" content="Ez a jegyzet bevezetést nyújt az R statisztikai programcsomag alapjaiba." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="általános-megjegyzések.html"/>
+<link rel="prev" href="adattípusok-adatszerkezetek.html"/>
+<link rel="next" href="az-r-programozása.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -170,18 +170,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Bevezetés az R statisztikai programcsomag használatába</h1>
-<p class="author"><em>Ferenci Tamás</em></p>
-<p class="date"><em>2019-11-09</em></p>
+<div id="függvények" class="section level1">
+<h1><span class="header-section-number">4 . fejezet</span> Függvények</h1>
+<p>A függvényekről</p>
+<div id="függvényhívások" class="section level2">
+<h2><span class="header-section-number">4.1</span> Függvényhívások</h2>
+<p>Függvény úgy hívható, hogy megadjuk a nevét, majd utána zárójelben az argumentumát, vagy argumentumait (lehet, hogy egy sincs, de a zárójelet ekkor is ki kell írni):</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" title="1"><span class="kw">quantile</span>(birthwt<span class="op">$</span>bwt)</a></code></pre></div>
+<pre><code>##   0%  25%  50%  75% 100% 
+##  709 2414 2977 3487 4990</code></pre>
+<p>Függvényről súgó a kérdőjellel kapható (két kérdőjel az összes ismert függvényt végigkeresi, akár névtöredékre is): <code>?quantile</code>.</p>
+<p>Aminél egyenlőségjellel adva van érték a specifikációban, ott az default-ként viselkedik, nem kötelező megadni, viszont a default-tal nem rendelkezőket muszáj:</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" title="1"><span class="kw">quantile</span>()</a></code></pre></div>
+<pre><code>## Error in is.factor(x): argument &quot;x&quot; is missing, with no default</code></pre>
+<p>Ha több argumentumot adunk meg, akkor azok a felsorolás sorrendjében osztódnak ki:</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" title="1"><span class="kw">quantile</span>(birthwt<span class="op">$</span>bwt, <span class="fl">0.23</span>)</a></code></pre></div>
+<pre><code>##  23% 
+## 2388</code></pre>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" title="1"><span class="kw">quantile</span>(birthwt<span class="op">$</span>bwt, <span class="kw">c</span>(<span class="fl">0.23</span>, <span class="fl">0.5</span>, <span class="fl">0.6</span>))</a></code></pre></div>
+<pre><code>##  23%  50%  60% 
+## 2388 2977 3169</code></pre>
+<p>Argumentumra hivatkozhatunk névvel is, ez esetben nem kell a felsorolás sorrendjével törődnünk:</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" title="1"><span class="kw">quantile</span>(birthwt<span class="op">$</span>bwt, <span class="kw">c</span>(<span class="fl">0.23</span>, <span class="fl">0.5</span>, <span class="fl">0.6</span>), <span class="dt">type =</span> <span class="dv">6</span>)</a></code></pre></div>
+<pre><code>##  23%  50%  60% 
+## 2381 2977 3175</code></pre>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" title="1"><span class="kw">quantile</span>(<span class="dt">probs =</span> <span class="kw">c</span>(<span class="fl">0.23</span>, <span class="fl">0.5</span>, <span class="fl">0.6</span>), <span class="dt">type =</span> <span class="dv">6</span>, <span class="dt">x =</span> birthwt<span class="op">$</span>bwt)</a></code></pre></div>
+<pre><code>##  23%  50%  60% 
+## 2381 2977 3175</code></pre>
+<p>Az általános gyakorlat az, hogy az első két-három argumentumot adhatjuk meg név nélkül (ezeknél elvárható, hogy fejből is tudja az ember, hogy mit jelent), de a többinél elegánsabb, ha mindenképp adunk nevet (tehát akkor is, ha sorrendben írjuk).</p>
+<p>Egy függvény hívásánál az argumentumai elkülöníthetőek egy listába, majd ugyanaz a hatása a <code>do.call</code> használatával elérhető (első argumentum a függvény, második az átadandó argumentumok listája):</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" title="1"><span class="kw">quantile</span>(<span class="dt">probs =</span> <span class="kw">c</span>(<span class="fl">0.23</span>, <span class="fl">0.5</span>, <span class="fl">0.6</span>), <span class="dt">type =</span> <span class="dv">6</span>, <span class="dt">x =</span> birthwt<span class="op">$</span>bwt)</a></code></pre></div>
+<pre><code>##  23%  50%  60% 
+## 2381 2977 3175</code></pre>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" title="1"><span class="kw">do.call</span>(quantile, <span class="kw">list</span>(<span class="dt">probs =</span> <span class="kw">c</span>(<span class="fl">0.23</span>, <span class="fl">0.5</span>, <span class="fl">0.6</span>), <span class="dt">type =</span> <span class="dv">6</span>, <span class="dt">x =</span> birthwt<span class="op">$</span>bwt))</a></code></pre></div>
+<pre><code>##  23%  50%  60% 
+## 2381 2977 3175</code></pre>
+<p>Ez akkor jön jól, ha nem tudjuk előre, hogy mik az argumentumok (akár azt sem, hogy hány darab van belőlük!), pl. mert egy <code>lapply</code>-jal gyártottuk le, lásd később:</p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" title="1"><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>), <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">6</span>))</a></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+## [3,]    5    6</code></pre>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" title="1"><span class="kw">do.call</span>(rbind, <span class="kw">lapply</span>(birthwt, <span class="cf">function</span>(x) <span class="kw">c</span>(<span class="kw">mean</span>(x), <span class="kw">median</span>(x))))</a></code></pre></div>
+<pre><code>## Warning in mean.default(x): argument is not numeric or logical: returning
+## NA</code></pre>
+<pre><code>##       [,1]                 [,2]  
+## low   &quot;0,312169312169312&quot;  &quot;0&quot;   
+## age   &quot;23,2380952380952&quot;   &quot;23&quot;  
+## lwt   &quot;129,814814814815&quot;   &quot;121&quot; 
+## race  &quot;1,84656084656085&quot;   &quot;1&quot;   
+## smoke &quot;0,391534391534392&quot;  &quot;0&quot;   
+## ptl   &quot;0,195767195767196&quot;  &quot;0&quot;   
+## ht    &quot;0,0634920634920635&quot; &quot;0&quot;   
+## ui    &quot;0,148148148148148&quot;  &quot;0&quot;   
+## ftv   &quot;0,793650793650794&quot;  &quot;0&quot;   
+## bwt   &quot;2944,5873015873&quot;    &quot;2977&quot;
+## nev   NA                   &quot;a&quot;</code></pre>
 </div>
-<div id="előszó" class="section level1">
-<h1><span class="header-section-number">1 . fejezet</span> Előszó</h1>
-<p>Előszó.</p>
-<p>Az R ingyenes, nyílt forráskódú statisztikai környezet.</p>
-<p>Az R egyik fontos jellemzője, hogy lényegében minden feladat elvégzéshez programot kell írnunk. Ez elsőre ijesztőnek hangozhat, és csakugyan igaz, hogy más programnyelvekhez képest a tanulási görbéje meredekebben indul: itt már két szám átlagolásához is programot kell írni, míg máshol csak kattintgatni kell. A dolog azonban kifizetődő: lehet, hogy egyszerű dolgokat más statisztikai környezetekben könnyebb végrehajtani, itt meg bonyolultabb, de cserében itt a bonyolultabbakat sem sokkal nehezebb, míg más statisztikai programokban az, vagy egyenesen lehetetlen.</p>
-<p>A fentiekből már érthető, hogy ahhoz, hogy el tudjunk kezdeni statisztikai elemzéseket végezni R-ben, először az R-rel mint programozási nyelvvel kell megismerkedni.</p>
+<div id="saját-függény-definiálása" class="section level2">
+<h2><span class="header-section-number">4.2</span> Saját függény definiálása</h2>
+<p>Ilyet is lehet.</p>
 
+</div>
 </div>
 <!-- Default Statcounter code for Physcon Research
 http://research.physcon.uni-obuda.hu/ -->
@@ -204,8 +254,8 @@ alt="ingyen webstatisztika"></a></div></noscript>
           </div>
         </div>
       </div>
-
-<a href="általános-megjegyzések.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="adattípusok-adatszerkezetek.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="az-r-programozása.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -237,7 +287,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/tamas-ferenci/bevr/edit/master/index.Rmd",
+"link": "https://github.com/tamas-ferenci/bevr/edit/master/03-fuggvenyek.Rmd",
 "text": "Edit"
 },
 "history": {
