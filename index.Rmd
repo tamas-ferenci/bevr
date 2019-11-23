@@ -8,11 +8,11 @@ documentclass: book
 link-citations: yes
 github-repo: tamas-ferenci/bevr
 description: "Ez a jegyzet bevezetést nyújt az R statisztikai programcsomag alapjaiba."
+url: https://tamas-ferenci.github.io/bevr/
+cover-image: bevrcover.png
 ---
 
 # Előszó
-
-Előszó.
 
 Az R ingyenes, nyílt forráskódú statisztikai környezet.
 
@@ -25,6 +25,7 @@ A fentiekből már érthető, hogy ahhoz, hogy el tudjunk kezdeni statisztikai e
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
-options(digits = 1, OutDec = ",")
+options(digits = 1)
 knitr::opts_chunk$set( tidy = TRUE, fig.height = 4 )
+download.file( "https://github.com/tamas-ferenci/bevr/raw/master/bevrcover.png", "./docs/bevrcover.png", mode = "wb" )
 ```

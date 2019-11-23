@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Bevezetés az R statisztikai programcsomag használatába</title>
   <meta name="description" content="Ez a jegyzet bevezetést nyújt az R statisztikai programcsomag alapjaiba." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Bevezetés az R statisztikai programcsomag használatába" />
   <meta property="og:type" content="book" />
-  
-  
+  <meta property="og:url" content="https://tamas-ferenci.github.io/bevr/" />
+  <meta property="og:image" content="https://tamas-ferenci.github.io/bevr/bevrcover.png" />
   <meta property="og:description" content="Ez a jegyzet bevezetést nyújt az R statisztikai programcsomag alapjaiba." />
   <meta name="github-repo" content="tamas-ferenci/bevr" />
 
@@ -19,12 +19,12 @@
   <meta name="twitter:title" content="Bevezetés az R statisztikai programcsomag használatába" />
   
   <meta name="twitter:description" content="Ez a jegyzet bevezetést nyújt az R statisztikai programcsomag alapjaiba." />
-  
+  <meta name="twitter:image" content="https://tamas-ferenci.github.io/bevr/bevrcover.png" />
 
 <meta name="author" content="Ferenci Tamás" />
 
 
-<meta name="date" content="2019-11-09" />
+<meta name="date" content="2019-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -173,11 +173,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Bevezetés az R statisztikai programcsomag használatába</h1>
 <p class="author"><em>Ferenci Tamás</em></p>
-<p class="date"><em>2019-11-09</em></p>
+<p class="date"><em>2019-11-23</em></p>
 </div>
 <div id="előszó" class="section level1">
 <h1><span class="header-section-number">1 . fejezet</span> Előszó</h1>
-<p>Előszó.</p>
 <p>Az R ingyenes, nyílt forráskódú statisztikai környezet.</p>
 <p>Az R egyik fontos jellemzője, hogy lényegében minden feladat elvégzéshez programot kell írnunk. Ez elsőre ijesztőnek hangozhat, és csakugyan igaz, hogy más programnyelvekhez képest a tanulási görbéje meredekebben indul: itt már két szám átlagolásához is programot kell írni, míg máshol csak kattintgatni kell. A dolog azonban kifizetődő: lehet, hogy egyszerű dolgokat más statisztikai környezetekben könnyebb végrehajtani, itt meg bonyolultabb, de cserében itt a bonyolultabbakat sem sokkal nehezebb, míg más statisztikai programokban az, vagy egyenesen lehetetlen.</p>
 <p>A fentiekből már érthető, hogy ahhoz, hogy el tudjunk kezdeni statisztikai elemzéseket végezni R-ben, először az R-rel mint programozási nyelvvel kell megismerkedni.</p>
@@ -221,15 +220,13 @@ alt="ingyen webstatisztika"></a></div></noscript>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",

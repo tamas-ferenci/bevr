@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 . fejezet Függvények | Bevezetés az R statisztikai programcsomag használatába</title>
   <meta name="description" content="Ez a jegyzet bevezetést nyújt az R statisztikai programcsomag alapjaiba." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 . fejezet Függvények | Bevezetés az R statisztikai programcsomag használatába" />
   <meta property="og:type" content="book" />
-  
-  
+  <meta property="og:url" content="https://tamas-ferenci.github.io/bevr/" />
+  <meta property="og:image" content="https://tamas-ferenci.github.io/bevr/bevrcover.png" />
   <meta property="og:description" content="Ez a jegyzet bevezetést nyújt az R statisztikai programcsomag alapjaiba." />
   <meta name="github-repo" content="tamas-ferenci/bevr" />
 
@@ -19,12 +19,12 @@
   <meta name="twitter:title" content="4 . fejezet Függvények | Bevezetés az R statisztikai programcsomag használatába" />
   
   <meta name="twitter:description" content="Ez a jegyzet bevezetést nyújt az R statisztikai programcsomag alapjaiba." />
-  
+  <meta name="twitter:image" content="https://tamas-ferenci.github.io/bevr/bevrcover.png" />
 
 <meta name="author" content="Ferenci Tamás" />
 
 
-<meta name="date" content="2019-11-09" />
+<meta name="date" content="2019-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -212,19 +212,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [2,]    3    4
 ## [3,]    5    6</code></pre>
 <div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" title="1"><span class="kw">do.call</span>(rbind, <span class="kw">lapply</span>(birthwt, <span class="cf">function</span>(x) <span class="kw">c</span>(<span class="kw">mean</span>(x), <span class="kw">median</span>(x))))</a></code></pre></div>
-<pre><code>## Warning in mean.default(x): argument is not numeric or logical: returning
-## NA</code></pre>
+<pre><code>## Warning in mean.default(x): argument is not numeric or logical: returning NA</code></pre>
 <pre><code>##       [,1]                 [,2]  
-## low   &quot;0,312169312169312&quot;  &quot;0&quot;   
-## age   &quot;23,2380952380952&quot;   &quot;23&quot;  
-## lwt   &quot;129,814814814815&quot;   &quot;121&quot; 
-## race  &quot;1,84656084656085&quot;   &quot;1&quot;   
-## smoke &quot;0,391534391534392&quot;  &quot;0&quot;   
-## ptl   &quot;0,195767195767196&quot;  &quot;0&quot;   
-## ht    &quot;0,0634920634920635&quot; &quot;0&quot;   
-## ui    &quot;0,148148148148148&quot;  &quot;0&quot;   
-## ftv   &quot;0,793650793650794&quot;  &quot;0&quot;   
-## bwt   &quot;2944,5873015873&quot;    &quot;2977&quot;
+## low   &quot;0.312169312169312&quot;  &quot;0&quot;   
+## age   &quot;23.2380952380952&quot;   &quot;23&quot;  
+## lwt   &quot;129.814814814815&quot;   &quot;121&quot; 
+## race  &quot;1.84656084656085&quot;   &quot;1&quot;   
+## smoke &quot;0.391534391534392&quot;  &quot;0&quot;   
+## ptl   &quot;0.195767195767196&quot;  &quot;0&quot;   
+## ht    &quot;0.0634920634920635&quot; &quot;0&quot;   
+## ui    &quot;0.148148148148148&quot;  &quot;0&quot;   
+## ftv   &quot;0.793650793650794&quot;  &quot;0&quot;   
+## bwt   &quot;2944.5873015873&quot;    &quot;2977&quot;
 ## nev   NA                   &quot;a&quot;</code></pre>
 </div>
 <div id="saját-függény-definiálása" class="section level2">
@@ -271,15 +270,13 @@ alt="ingyen webstatisztika"></a></div></noscript>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
