@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Bevezetés az R statisztikai programcsomag használatába</title>
   <meta name="description" content="Ez a jegyzet bevezetést nyújt az R statisztikai programcsomag alapjaiba." />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Bevezetés az R statisztikai programcsomag használatába" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Ferenci Tamás" />
 
 
-<meta name="date" content="2019-12-07" />
+<meta name="date" content="2021-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 
 <link rel="next" href="általános-megjegyzések.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -62,25 +63,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -89,9 +91,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -142,25 +144,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Előszó</a></li>
 <li class="chapter" data-level="2" data-path="általános-megjegyzések.html"><a href="általános-megjegyzések.html"><i class="fa fa-check"></i><b>2</b> Általános megjegyzések</a></li>
-<li class="chapter" data-level="3" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html"><i class="fa fa-check"></i><b>3</b> Adattípusok, adatszerkezetek</a><ul>
-<li class="chapter" data-level="3.1" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html#adattípusok-változó-értékadás"><i class="fa fa-check"></i><b>3.1</b> Adattípusok, változó, értékadás</a></li>
-<li class="chapter" data-level="3.2" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html#adatszerkezetek-és-indexelés"><i class="fa fa-check"></i><b>3.2</b> Adatszerkezetek és indexelés</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html#vektor"><i class="fa fa-check"></i><b>3.2.1</b> Vektor</a></li>
-<li class="chapter" data-level="3.2.2" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html#mátrix"><i class="fa fa-check"></i><b>3.2.2</b> Mátrix</a></li>
-<li class="chapter" data-level="3.2.3" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html#tömb-array"><i class="fa fa-check"></i><b>3.2.3</b> Tömb (array)</a></li>
-<li class="chapter" data-level="3.2.4" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html#data-frame"><i class="fa fa-check"></i><b>3.2.4</b> Data frame</a></li>
-<li class="chapter" data-level="3.2.5" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html#lista"><i class="fa fa-check"></i><b>3.2.5</b> Lista</a></li>
+<li class="chapter" data-level="3" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html"><i class="fa fa-check"></i><b>3</b> Adattípusok, adatszerkezetek</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html#értékadás"><i class="fa fa-check"></i><b>3.1</b> Értékadás</a></li>
+<li class="chapter" data-level="3.2" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html#adattípusok"><i class="fa fa-check"></i><b>3.2</b> Adattípusok</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html#numerikus"><i class="fa fa-check"></i><b>3.2.1</b> Numerikus</a></li>
+<li class="chapter" data-level="3.2.2" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html#szöveg"><i class="fa fa-check"></i><b>3.2.2</b> Szöveg</a></li>
+<li class="chapter" data-level="3.2.3" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html#logikai"><i class="fa fa-check"></i><b>3.2.3</b> Logikai</a></li>
+<li class="chapter" data-level="3.2.4" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html#az-adattípusokhoz-kapcsolódó-néhány-fontos-művelet"><i class="fa fa-check"></i><b>3.2.4</b> Az adattípusokhoz kapcsolódó néhány fontos művelet</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html#adatszerkezetek-és-indexelés"><i class="fa fa-check"></i><b>3.3</b> Adatszerkezetek és indexelés</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html#vektor"><i class="fa fa-check"></i><b>3.3.1</b> Vektor</a></li>
+<li class="chapter" data-level="3.3.2" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html#mátrix"><i class="fa fa-check"></i><b>3.3.2</b> Mátrix</a></li>
+<li class="chapter" data-level="3.3.3" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html#tömb-array"><i class="fa fa-check"></i><b>3.3.3</b> Tömb (array)</a></li>
+<li class="chapter" data-level="3.3.4" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html#data-frame"><i class="fa fa-check"></i><b>3.3.4</b> Data frame</a></li>
+<li class="chapter" data-level="3.3.5" data-path="adattípusok-adatszerkezetek.html"><a href="adattípusok-adatszerkezetek.html#lista"><i class="fa fa-check"></i><b>3.3.5</b> Lista</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="függvények.html"><a href="függvények.html"><i class="fa fa-check"></i><b>4</b> Függvények</a><ul>
+<li class="chapter" data-level="4" data-path="függvények.html"><a href="függvények.html"><i class="fa fa-check"></i><b>4</b> Függvények</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="függvények.html"><a href="függvények.html#függvényhívások"><i class="fa fa-check"></i><b>4.1</b> Függvényhívások</a></li>
 <li class="chapter" data-level="4.2" data-path="függvények.html"><a href="függvények.html#saját-függény-definiálása"><i class="fa fa-check"></i><b>4.2</b> Saját függény definiálása</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="az-r-programozása.html"><a href="az-r-programozása.html"><i class="fa fa-check"></i><b>5</b> Az R programozása</a><ul>
+<li class="chapter" data-level="5" data-path="az-r-programozása.html"><a href="az-r-programozása.html"><i class="fa fa-check"></i><b>5</b> Az R programozása</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="az-r-programozása.html"><a href="az-r-programozása.html#funkcionális-programozás"><i class="fa fa-check"></i><b>5.1</b> Funkcionális programozás</a></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="http://www.medstat.hu/" target="blank">http://www.medstat.hu/</a></li>
 
 </ul>
 
@@ -182,13 +195,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Bevezetés az R statisztikai programcsomag használatába</h1>
 <p class="author"><em>Ferenci Tamás</em></p>
-<p class="date"><em>2019-12-07</em></p>
+<p class="date"><em>2021-02-23</em></p>
 </div>
-<div id="előszó" class="section level1">
+<div id="előszó" class="section level1" number="1">
 <h1><span class="header-section-number">1 . fejezet</span> Előszó</h1>
 <p>Az R ingyenes, nyílt forráskódú statisztikai környezet.</p>
 <p>Az R egyik fontos jellemzője, hogy lényegében minden feladat elvégzéshez programot kell írnunk. Ez elsőre ijesztőnek hangozhat, és csakugyan igaz, hogy más programnyelvekhez képest a tanulási görbéje meredekebben indul: itt már két szám átlagolásához is programot kell írni, míg máshol csak kattintgatni kell. A dolog azonban kifizetődő: lehet, hogy egyszerű dolgokat más statisztikai környezetekben könnyebb végrehajtani, itt meg bonyolultabb, de cserében itt a bonyolultabbakat sem sokkal nehezebb, míg más statisztikai programokban az, vagy egyenesen lehetetlen.</p>
 <p>A fentiekből már érthető, hogy ahhoz, hogy el tudjunk kezdeni statisztikai elemzéseket végezni R-ben, először az R-rel mint programozási nyelvvel kell megismerkedni.</p>
+<p>Az R talán legnagyobb erejét a hozzá megírt, megszámlálhatatlan sok kiegészítő csomag adja, amikkel jószerével minden elképzelhető statisztikai feladat – adott esetben rendkívül bonyolult számítások jelentőek is – megoldhatóak, sokszor mindössze egy-egy függvényhívással. Nagyon tipikus, hogy a vadonatúj statisztikai módszereket is R-ben implementálják első közlésükkor. A ‘reprodukálható kutatás’ jegyében a cikkekkel együtt közzétett elemzések is nagyon gyakran R-ben íródtak, ezekből szintén sok ötlet meríthető. Mindezek alapja az R mögött álló, rendkívül széles nemzetközi közösség, mely erős támogatást jelent a hibák javítása, és az új funkciók megvalósításának irányában is.</p>
 
 </div>
 <!-- Default Statcounter code for Physcon Research
