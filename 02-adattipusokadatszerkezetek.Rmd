@@ -207,7 +207,7 @@ Megtehetjük azt is, hogy nem egy számot, hanem egy vektort adunk át, ekkor a 
 szamvektor[c(1, 3)]
 ```
 
-(Ugye látjuk, hogy ez a kettő igazából ugyanaz? Az előbbi példa is vektorral indexelt.)
+(Ugye látjuk, hogy ez a kettő igazából ugyanaz? Az előbbi példa is vektorral indexeltm hiszen ,,egy szám'' nincsen, az is vektor.)
 
 Egy elem kiválasztható többször is, illetve tetszőleges sorrendben:
 ```{r}
@@ -237,14 +237,14 @@ Ez egy újabb példa a kétélű flexibilitásra: azért fog működni, mert ily
 
 Lehetséges negatív indexelés is, ez kiválaszt mindent, _kivéve_ amit indexeltünk:
 ```{r}
-szamvektor[ -3 ]
-szamvektor[ -c( 1, 3 ) ]
+szamvektor[-3]
+szamvektor[-c(1, 3)]
 ```
 
 Ha vannak elnevezések, akkor azok használhatóak indexelésre is:
 ```{r}
-szamvektor[ "masodik" ]
-szamvektor[ c( "masodik", "utolso" ) ]
+szamvektor["masodik"]
+szamvektor[c("masodik", "utolso")]
 ```
 
 Az indexelés és az értékadás kombinálható is:
@@ -270,7 +270,7 @@ szammatrix <- matrix( 1:6, nc = 2 )
 szammatrix
 ```
 
-Alapból oszlopok szerint tölt, de a `byrow` argumentummal ezt átállíthatjuk:
+Alapból oszlopok szerint tördel, de a `byrow` argumentummal ezt átállíthatjuk:
 ```{r}
 matrix( 1:6, nc = 2, byrow = TRUE )
 ```
