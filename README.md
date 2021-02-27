@@ -1,2 +1,1 @@
-# bevr
-[Ferenci Tamás: Bevezetés az R statisztikai programcsomag használatába (jegyzet).](https://tamas-ferenci.github.io/bevr/)
+Új cím: [https://github.com/tamas-ferenci/FerenciTamas_BevezetesAzRStatisztikaiProgramcsomagHasznalataba](https://github.com/tamas-ferenci/FerenciTamas_BevezetesAzRStatisztikaiProgramcsomagHasznalataba).
