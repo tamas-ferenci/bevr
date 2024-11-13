@@ -1,1 +1,1 @@
-Új cím: [https://github.com/tamas-ferenci/FerenciTamas_BevezetesAzRStatisztikaiProgramcsomagHasznalataba](https://github.com/tamas-ferenci/FerenciTamas_BevezetesAzRStatisztikaiProgramcsomagHasznalataba).
+Új cím: <https://tamas-ferenci.github.io/ferenci-tamas-r-nyelv/>.
